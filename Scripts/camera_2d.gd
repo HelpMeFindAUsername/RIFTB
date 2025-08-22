@@ -9,5 +9,5 @@ extends Camera2D
 var base_zoom = Vector2(1, 1)
 var focused_zoom
 
-func _process(delta):
+func _process(_delta):
 	camera_2d.position = lerp(node_2d.position, get_global_mouse_position(), camera_sens)

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmdntay685qki"]
+[gd_scene load_steps=4 format=3 uid="uid://dmdntay685qki"]
 
 [ext_resource type="PackedScene" uid="uid://rthxfyma5sfk" path="res://Scenes/target.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/camera.tscn" id="2_bo1nx"]
+
+[sub_resource type="GDScript" id="GDScript_bo1nx"]
+script/source = "extends Label
+
+func _process(_delta):
+	text = \"PLAYER SCORE = \" + str(Global.player_score)
+"
 
 [node name="Main" type="Node2D"]
 
@@ -15,3 +22,14 @@ position = Vector2(937, 537)
 position = Vector2(1149, 545)
 
 [node name="Camera" parent="." instance=ExtResource("2_bo1nx")]
+
+[node name="Player_Score" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 80.0
+offset_right = 397.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_bo1nx")

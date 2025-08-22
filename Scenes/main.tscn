@@ -13,21 +13,21 @@ func _process(_delta):
 [node name="Main" type="Node2D"]
 
 [node name="Target" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(722, 531)
+position = Vector2(345, 341)
 
 [node name="Target2" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(937, 537)
+position = Vector2(560, 347)
 
 [node name="Target3" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(1149, 545)
+position = Vector2(772, 355)
 
 [node name="Camera" parent="." instance=ExtResource("2_bo1nx")]
 
 [node name="Player_Score" type="Label" parent="."]
-offset_left = 46.0
-offset_top = 80.0
-offset_right = 397.0
-offset_bottom = 327.0
+offset_left = 386.0
+offset_top = -10.0
+offset_right = 737.0
+offset_bottom = 237.0
 theme_override_font_sizes/font_size = 50
 text = "SCORE"
 horizontal_alignment = 1

@@ -6,14 +6,14 @@
 [node name="Camera" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(576, 324)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 visible = false
 texture = ExtResource("1_e20cu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(576, 324)
 ignore_rotation = false
 position_smoothing_enabled = true
 script = ExtResource("1_w55bj")

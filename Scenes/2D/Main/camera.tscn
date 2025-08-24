@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=8 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
@@ -14,6 +14,15 @@ size = Vector2(742, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fclq7"]
 size = Vector2(62.45, 290.2)
+
+[sub_resource type="GDScript" id="GDScript_a4kck"]
+script/source = "extends Label
+
+@onready var camera_2d = $\"../../Camera2D\"
+
+func _process(_delta):
+	text = \"CURRENT ZOOM MULT : \" + str(camera_2d.zoom_mult)
+"
 
 [node name="Camera" type="Node2D"]
 
@@ -83,6 +92,14 @@ shape = SubResource("RectangleShape2D_fclq7")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Small_Movements/Small_Right_Move"]
 position = Vector2(917.11, 323.9)
 shape = SubResource("RectangleShape2D_fclq7")
+
+[node name="Current_Zoom_Mult" type="Label" parent="CanvasLayer"]
+offset_right = 249.0
+offset_bottom = 121.0
+text = "CURRENT ZOOM MULT"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_a4kck")
 
 [connection signal="mouse_entered" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]

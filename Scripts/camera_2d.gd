@@ -3,8 +3,9 @@ extends Camera2D
 @onready var camera_2d = $"."
 @onready var node_2d = $"../Node2D"
 @export var camera_sens = 0.1
-@export var zoom_mult = 4
+@export var zoom_mult = 2
 var current_zoom_mult : int
+@export var max_mult = 6
 @export var zoom_speed = 0.01
 @export var zoom_strong_mov_speed = 0.15
 @export var zoom_small_mov_speed = 0.05
@@ -30,9 +31,18 @@ func _ready():
 	start_centre_position = node_2d.position
 
 func _input(event):
+	#ZOOM CHECK
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT:
 		if event.pressed:
 			zoom_starting_position = event.position
+	
+	if event is InputEventMouseButton:
+		if event.pressed:
+			if event.button_index == MOUSE_BUTTON_WHEEL_UP and zoom_mult < max_mult:
+				zoom_mult += 1
+			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN and zoom_mult > 2:
+				zoom_mult -= 1
+
 
 func _process(_delta):
 	camera_2d.position = lerp(node_2d.position, get_global_mouse_position(), camera_sens)
@@ -69,6 +79,7 @@ func _process(_delta):
 	else:
 		current_zoom_mult = 1
 		node_2d.position = start_centre_position
+
 
 #STRONG MOVEMENTS
 #-------------------------------------------------------------------------------

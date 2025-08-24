@@ -3,9 +3,10 @@ extends Camera2D
 @onready var camera_2d = $"."
 @onready var node_2d = $"../Node2D"
 @export var camera_sens = 0.1
-@export var zoom_mult = 2
-@export var zoom_speed = 0.02
-@export var zoom_mov_speed = 0.2
+@export var zoom_mult = 4
+var current_zoom_mult : int
+@export var zoom_speed = 0.01
+@export var zoom_mov_speed = 0.1
 
 var start_centre_position : Vector2
 var base_zoom = Vector2(1, 1)
@@ -21,13 +22,12 @@ func _ready():
 
 func _process(_delta):
 	camera_2d.position = lerp(node_2d.position, get_global_mouse_position(), camera_sens)
-	
-	camera_2d.zoom = lerp(camera_2d.zoom, base_zoom * zoom_mult, zoom_speed)
+	camera_2d.zoom = lerp(camera_2d.zoom, base_zoom * current_zoom_mult, zoom_speed)
 	
 	
 	#ZOOM CONDITIONS
 	if Input.is_action_pressed("Scope"):
-		zoom_mult = 2
+		current_zoom_mult = zoom_mult
 		if move_up:
 			node_2d.position.y -= zoom_mov_speed
 		if move_down:
@@ -37,7 +37,7 @@ func _process(_delta):
 		if move_right:
 			node_2d.position.x += zoom_mov_speed
 	else:
-		zoom_mult = 1
+		current_zoom_mult = 1
 		node_2d.position = start_centre_position
 
 

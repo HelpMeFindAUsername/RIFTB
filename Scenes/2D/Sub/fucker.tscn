@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfmsgewyvhf47"]
+[gd_scene load_steps=5 format=3 uid="uid://cfmsgewyvhf47"]
 
+[ext_resource type="Script" uid="uid://bqagji1ioim44" path="res://Scripts/fucker.gd" id="1_8jy7u"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_w7l0u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adw80"]
@@ -9,6 +10,7 @@ size = Vector2(406, 527)
 size = Vector2(306, 470)
 
 [node name="Fucker" type="Node2D"]
+script = ExtResource("1_8jy7u")
 
 [node name="Fucker_Sprite_WIP" type="Sprite2D" parent="."]
 scale = Vector2(2.35938, 3.51563)
@@ -27,3 +29,8 @@ debug_color = Color(0.998407, 0, 0.142817, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_HitBox"]
 position = Vector2(151, 225)
 shape = SubResource("RectangleShape2D_jwcaj")
+
+[connection signal="mouse_entered" from="Fucker_Graze_Hitbox" to="." method="_on_fucker_graze_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Fucker_Graze_Hitbox" to="." method="_on_fucker_graze_hitbox_mouse_exited"]
+[connection signal="mouse_entered" from="Fucker_HitBox" to="." method="_on_fucker_hit_box_mouse_entered"]
+[connection signal="mouse_exited" from="Fucker_HitBox" to="." method="_on_fucker_hit_box_mouse_exited"]

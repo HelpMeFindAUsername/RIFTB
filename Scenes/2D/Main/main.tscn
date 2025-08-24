@@ -21,13 +21,15 @@ func _process(_delta):
 position = Vector2(1328, 351)
 
 [node name="Target" parent="2D" instance=ExtResource("3_kxp6f")]
-position = Vector2(858, 610)
+position = Vector2(403, 608)
 
 [node name="Target2" parent="2D" instance=ExtResource("3_kxp6f")]
 position = Vector2(666, 610)
+health = 2
 
 [node name="Target3" parent="2D" instance=ExtResource("3_kxp6f")]
-position = Vector2(459, 615)
+position = Vector2(940, 608)
+health = 3
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

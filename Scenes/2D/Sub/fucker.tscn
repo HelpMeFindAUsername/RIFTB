@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfmsgewyvhf47"]
+[gd_scene load_steps=8 format=3 uid="uid://cfmsgewyvhf47"]
 
 [ext_resource type="Script" uid="uid://bqagji1ioim44" path="res://Scripts/fucker.gd" id="1_8jy7u"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_w7l0u"]
@@ -9,10 +9,36 @@ size = Vector2(406, 527)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcaj"]
 size = Vector2(306, 470)
 
+[sub_resource type="Animation" id="Animation_8jy7u"]
+resource_name = "walking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fucker_Sprite_WIP:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1.68179, 0.466517, 2.07053),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_46dx1"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fv61g"]
+_data = {
+&"RESET": SubResource("Animation_46dx1"),
+&"walking": SubResource("Animation_8jy7u")
+}
+
 [node name="Fucker" type="Node2D"]
 script = ExtResource("1_8jy7u")
 
 [node name="Fucker_Sprite_WIP" type="Sprite2D" parent="."]
+position = Vector2(0, 1.54055)
 scale = Vector2(2.35938, 3.51563)
 texture = ExtResource("1_w7l0u")
 centered = false
@@ -29,6 +55,12 @@ debug_color = Color(0.998407, 0, 0.142817, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_HitBox"]
 position = Vector2(151, 225)
 shape = SubResource("RectangleShape2D_jwcaj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fv61g")
+}
+autoplay = "walking"
 
 [connection signal="mouse_entered" from="Fucker_Graze_Hitbox" to="." method="_on_fucker_graze_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Fucker_Graze_Hitbox" to="." method="_on_fucker_graze_hitbox_mouse_exited"]

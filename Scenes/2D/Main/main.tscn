@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmdntay685qki"]
+
+[ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_4551s"]
+[ext_resource type="PackedScene" uid="uid://cfmsgewyvhf47" path="res://Scenes/2D/Sub/fucker.tscn" id="2_gov5m"]
+[ext_resource type="PackedScene" uid="uid://rthxfyma5sfk" path="res://Scenes/2D/Sub/target.tscn" id="3_kxp6f"]
+
+[sub_resource type="GDScript" id="GDScript_8gbba"]
+script/source = "extends Label
+
+func _process(_delta):
+	text = \"PLAYER SCORE = \" + str(Global.player_score)
+"
+
+[node name="Main" type="Node"]
+
+[node name="2D" type="Node2D" parent="."]
+
+[node name="Camera" parent="2D" instance=ExtResource("1_4551s")]
+
+[node name="Fucker" parent="2D" instance=ExtResource("2_gov5m")]
+position = Vector2(1328, 351)
+
+[node name="Target" parent="2D" instance=ExtResource("3_kxp6f")]
+position = Vector2(858, 610)
+
+[node name="Target2" parent="2D" instance=ExtResource("3_kxp6f")]
+position = Vector2(666, 610)
+
+[node name="Target3" parent="2D" instance=ExtResource("3_kxp6f")]
+position = Vector2(459, 615)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="Player_Score" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 138.0
+offset_right = 603.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 50
+text = "SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_8gbba")

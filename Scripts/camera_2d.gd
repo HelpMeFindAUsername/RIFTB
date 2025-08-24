@@ -6,7 +6,8 @@ extends Camera2D
 @export var zoom_mult = 4
 var current_zoom_mult : int
 @export var zoom_speed = 0.01
-@export var zoom_mov_speed = 0.2
+@export var zoom_strong_mov_speed = 0.15
+@export var zoom_small_mov_speed = 0.05
 
 var zoom_starting_position : Vector2
 
@@ -14,10 +15,16 @@ var start_centre_position : Vector2
 var base_zoom = Vector2(1, 1)
 
 #CAMERA MOVING VARIABLES
+#STRONG
 var move_up : bool
 var move_down : bool
 var move_left : bool
 var move_right : bool
+#SMALL
+var s_move_up : bool
+var s_move_down : bool
+var s_move_left : bool
+var s_move_right : bool
 
 func _ready():
 	start_centre_position = node_2d.position
@@ -39,18 +46,32 @@ func _process(_delta):
 			node_2d.position = lerp(zoom_starting_position, get_global_mouse_position(), camera_sens)
 		current_zoom_mult = zoom_mult
 		
+		#STRONG MOVEMENTS
 		if move_up:
-			node_2d.position.y -= zoom_mov_speed
+			node_2d.position.y -= zoom_strong_mov_speed
 		if move_down:
-			node_2d.position.y += zoom_mov_speed
+			node_2d.position.y += zoom_strong_mov_speed
 		if move_left:
-			node_2d.position.x -= zoom_mov_speed
+			node_2d.position.x -= zoom_strong_mov_speed
 		if move_right:
-			node_2d.position.x += zoom_mov_speed
+			node_2d.position.x += zoom_strong_mov_speed
+		
+		#SMALL MOVEMENTS
+		if s_move_up:
+			node_2d.position.y -= zoom_small_mov_speed
+		if s_move_down:
+			node_2d.position.y += zoom_small_mov_speed
+		if s_move_left:
+			node_2d.position.x -= zoom_small_mov_speed
+		if s_move_right:
+			node_2d.position.x += zoom_small_mov_speed
+		
 	else:
 		current_zoom_mult = 1
 		node_2d.position = start_centre_position
 
+#STRONG MOVEMENTS
+#-------------------------------------------------------------------------------
 
 #MOVE UP
 func _on_up_move_mouse_entered():
@@ -82,3 +103,39 @@ func _on_right_move_mouse_entered():
 
 func _on_right_move_mouse_exited():
 	move_right = false
+#-------------------------------------------------------------------------------
+
+#SMALL MOVEMENTS
+#-------------------------------------------------------------------------------
+
+#S_MOVE_UP
+func _on_small_up_move_mouse_entered():
+	s_move_up = true
+
+func _on_small_up_move_mouse_exited():
+	s_move_up = false
+
+
+#S_MOVE_DOWN
+func _on_small_down_move_mouse_entered():
+	s_move_down = true
+
+func _on_small_down_move_mouse_exited():
+	s_move_down = false
+
+
+#S_MOVE_LEFT
+func _on_small_left_move_mouse_entered():
+	s_move_left = true
+
+func _on_small_left_move_mouse_exited():
+	s_move_left = false
+
+
+#S_MOVE_RIGHT
+func _on_small_right_move_mouse_entered():
+	s_move_right = true
+
+func _on_small_right_move_mouse_exited():
+	s_move_right = false
+#-------------------------------------------------------------------------------

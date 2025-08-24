@@ -6,7 +6,7 @@ var target_entered : bool = false
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if target_entered == true:
+		if target_entered:
 			if event.pressed:
 				print("TARGET HIT")
 				health -= 1
@@ -18,7 +18,9 @@ func _process(_delta):
 
 func _on_target_hitbox_mouse_entered() -> void:
 	target_entered = true
+	print("Entered_Target")
 
 
 func _on_target_hitbox_mouse_exited() -> void:
 	target_entered = false
+	print("Exited_Target")

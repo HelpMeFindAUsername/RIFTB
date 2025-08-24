@@ -1,19 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=5 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
+size = Vector2(1152, 237.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4kck"]
+size = Vector2(330, 648)
+
 [node name="Camera" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(576, 324)
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 visible = false
 texture = ExtResource("1_e20cu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(960, 540)
+position = Vector2(576, 324)
 ignore_rotation = false
 position_smoothing_enabled = true
 script = ExtResource("1_w55bj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Up_Move" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Up_Move"]
+position = Vector2(576, 67.5)
+shape = SubResource("RectangleShape2D_j0yne")
+
+[node name="Down_Move" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Down_Move"]
+position = Vector2(576, 580.25)
+shape = SubResource("RectangleShape2D_j0yne")
+
+[node name="Left_Move" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Left_Move"]
+position = Vector2(83, 324)
+shape = SubResource("RectangleShape2D_a4kck")
+
+[node name="Right_Move" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Right_Move"]
+position = Vector2(1069, 324)
+shape = SubResource("RectangleShape2D_a4kck")
+
+[connection signal="mouse_entered" from="CanvasLayer/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Down_Move" to="Camera2D" method="_on_down_move_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Down_Move" to="Camera2D" method="_on_down_move_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Left_Move" to="Camera2D" method="_on_left_move_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Left_Move" to="Camera2D" method="_on_left_move_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Right_Move" to="Camera2D" method="_on_right_move_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Right_Move" to="Camera2D" method="_on_right_move_mouse_exited"]

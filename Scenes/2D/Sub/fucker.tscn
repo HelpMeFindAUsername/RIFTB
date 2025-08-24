@@ -20,7 +20,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1.68179, 0.466517, 2.07053),
+"transitions": PackedFloat32Array(2.2974, 0.466517, 2.07053),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 0)]
 }
@@ -38,7 +38,7 @@ _data = {
 script = ExtResource("1_8jy7u")
 
 [node name="Fucker_Sprite_WIP" type="Sprite2D" parent="."]
-position = Vector2(0, 1.54055)
+position = Vector2(0, 3.57669)
 scale = Vector2(2.35938, 3.51563)
 texture = ExtResource("1_w7l0u")
 centered = false

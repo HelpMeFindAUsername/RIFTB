@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://rthxfyma5sfk"]
+[gd_scene load_steps=5 format=3 uid="uid://rthxfyma5sfk"]
 
 [ext_resource type="Script" uid="uid://checqkkyahuvl" path="res://Scripts/target.gd" id="1_ls7vh"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_vq1qf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7f73g"]
 size = Vector2(76, 148)
+
+[sub_resource type="GDScript" id="GDScript_otvy6"]
+script/source = "extends Label
+
+@onready var target = $\"..\"
+
+func _process(_delta):
+	text = \"HEALTH : \" + str(target.health)
+"
 
 [node name="Target" type="Node2D"]
 script = ExtResource("1_ls7vh")
@@ -17,6 +26,16 @@ texture = ExtResource("1_vq1qf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Hitbox"]
 shape = SubResource("RectangleShape2D_7f73g")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -65.0
+offset_top = -138.0
+offset_right = 64.0
+offset_bottom = -86.0
+text = "HEALTH"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = SubResource("GDScript_otvy6")
 
 [connection signal="mouse_entered" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_exited"]

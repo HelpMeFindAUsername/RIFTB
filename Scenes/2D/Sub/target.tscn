@@ -73,11 +73,6 @@ collision_mask = 2
 freeze = true
 script = ExtResource("1_ls7vh")
 
-[node name="Target_Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Hitbox"]
-shape = SubResource("RectangleShape2D_jgpce")
-
 [node name="Target_Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jgpce")
 
@@ -91,6 +86,11 @@ texture = ExtResource("3_jgpce")
 region_enabled = true
 region_rect = Rect2(0, 0, 69, 128)
 script = SubResource("GDScript_r2kur")
+
+[node name="Target_Hitbox" type="Area2D" parent="Random_Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Random_Sprite/Target_Hitbox"]
+shape = SubResource("RectangleShape2D_jgpce")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -65.0
@@ -107,5 +107,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ef517")
 }
 
-[connection signal="mouse_entered" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]
-[connection signal="mouse_exited" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_exited"]
+[connection signal="mouse_entered" from="Random_Sprite/Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]
+[connection signal="mouse_exited" from="Random_Sprite/Target_Hitbox" to="." method="_on_target_hitbox_mouse_exited"]

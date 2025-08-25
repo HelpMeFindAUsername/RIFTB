@@ -70,7 +70,7 @@ script = ExtResource("1_8jy7u")
 sprite_frames = SubResource("SpriteFrames_xaqun")
 animation = &"screaming"
 autoplay = "screaming"
-frame_progress = 0.821282
+frame_progress = 0.144035
 centered = false
 
 [node name="Fucker_Graze_Hitbox" type="Area2D" parent="."]

@@ -1,23 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://rthxfyma5sfk"]
+[gd_scene load_steps=10 format=3 uid="uid://rthxfyma5sfk"]
 
 [ext_resource type="Script" uid="uid://checqkkyahuvl" path="res://Scripts/target.gd" id="1_ls7vh"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_vq1qf"]
 [ext_resource type="Texture2D" uid="uid://cjjcpeen2unba" path="res://Assets/Target/Target-Sheet.png" id="3_jgpce"]
 
-[sub_resource type="GDScript" id="GDScript_jgpce"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgpce"]
+size = Vector2(76, 148)
+
+[sub_resource type="GDScript" id="GDScript_r2kur"]
 script/source = "extends Sprite2D
 
 var frames = texture.get_width() / region_rect.size.x
+@onready var target = $\"..\"
 
 func _ready():
 	var random_index = randi_range(0, frames - 1)
 	region_rect.position.x = random_index * region_rect.size.x
+
+func _process(_delta):
+	scale = target.scale_mult
 "
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f73g"]
-size = Vector2(76, 148)
-
-[sub_resource type="GDScript" id="GDScript_otvy6"]
+[sub_resource type="GDScript" id="GDScript_ef517"]
 script/source = "extends Label
 
 @onready var target = $\"..\"
@@ -26,8 +30,56 @@ func _process(_delta):
 	text = \"HEALTH : \" + str(target.health)
 "
 
-[node name="Target" type="Node2D"]
+[sub_resource type="Animation" id="Animation_r2kur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Random_Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jgpce"]
+resource_name = "falling"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Random_Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.26573]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ef517"]
+_data = {
+&"RESET": SubResource("Animation_r2kur"),
+&"falling": SubResource("Animation_jgpce")
+}
+
+[node name="Target" type="RigidBody2D"]
+collision_mask = 2
+freeze = true
 script = ExtResource("1_ls7vh")
+
+[node name="Target_Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Hitbox"]
+shape = SubResource("RectangleShape2D_jgpce")
+
+[node name="Target_Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jgpce")
 
 [node name="Target_Sprite_WIP" type="Sprite2D" parent="."]
 visible = false
@@ -38,12 +90,7 @@ texture = ExtResource("1_vq1qf")
 texture = ExtResource("3_jgpce")
 region_enabled = true
 region_rect = Rect2(0, 0, 69, 128)
-script = SubResource("GDScript_jgpce")
-
-[node name="Target_Hitbox" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Target_Hitbox"]
-shape = SubResource("RectangleShape2D_7f73g")
+script = SubResource("GDScript_r2kur")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -65.0
@@ -53,7 +100,12 @@ offset_bottom = -86.0
 text = "HEALTH"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = SubResource("GDScript_otvy6")
+script = SubResource("GDScript_ef517")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ef517")
+}
 
 [connection signal="mouse_entered" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]
 [connection signal="mouse_exited" from="Target_Hitbox" to="." method="_on_target_hitbox_mouse_exited"]

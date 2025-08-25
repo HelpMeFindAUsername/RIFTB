@@ -17,38 +17,36 @@ func _process(_delta):
 
 [node name="Camera" parent="2D" instance=ExtResource("1_4551s")]
 
-[node name="Fucker" parent="2D" instance=ExtResource("2_gov5m")]
-position = Vector2(824, 155)
+[node name="Back" type="Node2D" parent="2D"]
+
+[node name="Target" parent="2D/Back" instance=ExtResource("3_kxp6f")]
+position = Vector2(392, 146)
+scale_mult = Vector2(0.2, 0.2)
+
+[node name="Target2" parent="2D/Back" instance=ExtResource("3_kxp6f")]
+position = Vector2(513, 149)
+scale_mult = Vector2(0.2, 0.2)
+
+[node name="Target3" parent="2D/Back" instance=ExtResource("3_kxp6f")]
+position = Vector2(642, 152)
+scale_mult = Vector2(0.2, 0.2)
 
 [node name="Front" type="Node2D" parent="2D"]
 
 [node name="Target" parent="2D/Front" instance=ExtResource("3_kxp6f")]
-position = Vector2(237, 367)
+position = Vector2(328, 375)
 
 [node name="Target2" parent="2D/Front" instance=ExtResource("3_kxp6f")]
-position = Vector2(500, 369)
-health = 2
+position = Vector2(490, 374)
 
 [node name="Target3" parent="2D/Front" instance=ExtResource("3_kxp6f")]
-position = Vector2(774, 367)
-health = 3
+position = Vector2(654, 382)
 
-[node name="Back" type="Node2D" parent="2D"]
-position = Vector2(429, 103)
-scale = Vector2(0.2, 0.2)
-
-[node name="B_Target" parent="2D/Back" instance=ExtResource("3_kxp6f")]
-position = Vector2(214, 446)
-
-[node name="B_Target2" parent="2D/Back" instance=ExtResource("3_kxp6f")]
-position = Vector2(354, 448)
-health = 2
-
-[node name="B_Target3" parent="2D/Back" instance=ExtResource("3_kxp6f")]
-position = Vector2(506, 452)
-health = 3
+[node name="Fucker" parent="2D" instance=ExtResource("2_gov5m")]
+position = Vector2(824, 155)
 
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0

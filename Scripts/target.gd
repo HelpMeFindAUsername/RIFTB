@@ -1,8 +1,10 @@
-extends Node2D
+extends RigidBody2D
 
 var target_entered : bool = false
-@export var health : int = 1
-
+var health : int = 1
+@onready var animation_player = $AnimationPlayer
+@onready var target = $".."
+@export var scale_mult := Vector2(1, 1)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -14,7 +16,11 @@ func _input(event):
 
 func _process(_delta):
 	if health <= 0:
-		queue_free()
+		animation_player.play("falling")
+
+func _physics_process(_delta):
+	if health <= 0:
+		freeze = false
 
 func _on_target_hitbox_mouse_entered() -> void:
 	target_entered = true

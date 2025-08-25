@@ -46,24 +46,28 @@ script = ExtResource("1_w55bj")
 [node name="Up_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Up_Move"]
+visible = false
 position = Vector2(575, 60)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Down_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Down_Move"]
+visible = false
 position = Vector2(576, 588)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Left_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Left_Move"]
+visible = false
 position = Vector2(37.2813, 325.5)
 shape = SubResource("RectangleShape2D_a4kck")
 
 [node name="Right_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Right_Move"]
+visible = false
 position = Vector2(1114.89, 311.375)
 shape = SubResource("RectangleShape2D_a4kck")
 

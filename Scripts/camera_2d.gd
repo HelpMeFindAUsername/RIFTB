@@ -53,10 +53,10 @@ func _process(delta):
 	camera_2d.zoom = lerp(camera_2d.zoom, base_zoom * current_zoom_mult, zoom_speed * delta)
 	
 	# Zoom input handling
-	if Input.is_action_just_pressed("Scope"):
+	if Input.is_action_just_pressed("RMB"):
 		node_2d.position = lerp(zoom_starting_position, get_global_mouse_position(), camera_sens * delta)
 	
-	if Input.is_action_pressed("Scope"):
+	if Input.is_action_pressed("RMB"):
 		current_zoom_mult = zoom_mult
 		
 		if can_camera_move:

@@ -2,13 +2,13 @@ extends Camera2D
 
 @onready var camera_2d = $"."
 @onready var node_2d = $"../Node2D"
-@export var camera_sens = 0.1
+@export var camera_sens = 10.0
 @export var zoom_mult = 2
 var current_zoom_mult : int
 @export var max_mult = 6
-@export var zoom_speed = 0.01
-@export var zoom_strong_mov_speed = 0.15
-@export var zoom_small_mov_speed = 0.05
+@export var zoom_speed = 10.0
+@export var zoom_strong_mov_speed = 120.0
+@export var zoom_small_mov_speed = 60.0
 @export var can_camera_move : bool = true
 
 var zoom_starting_position : Vector2
@@ -45,42 +45,44 @@ func _input(event):
 				zoom_mult -= 1
 
 
-func _process(_delta):
-	camera_2d.position = lerp(node_2d.position, get_global_mouse_position(), camera_sens)
-	camera_2d.zoom = lerp(camera_2d.zoom, base_zoom * current_zoom_mult, zoom_speed)
+func _process(delta):
+	# Interpolating camera position toward the mouse
+	camera_2d.position = lerp(node_2d.position, get_global_mouse_position(), camera_sens * delta)
 	
+	# Smooth zoom interpolation
+	camera_2d.zoom = lerp(camera_2d.zoom, base_zoom * current_zoom_mult, zoom_speed * delta)
 	
-	#ZOOM CONDITIONS
+	# Zoom input handling
 	if Input.is_action_just_pressed("Scope"):
-		node_2d.position = lerp(zoom_starting_position, get_global_mouse_position(), camera_sens)
+		node_2d.position = lerp(zoom_starting_position, get_global_mouse_position(), camera_sens * delta)
+	
 	if Input.is_action_pressed("Scope"):
-		
 		current_zoom_mult = zoom_mult
 		
 		if can_camera_move:
-			#STRONG MOVEMENTS
+			# STRONG MOVEMENTS
 			if move_up:
-				node_2d.position.y -= zoom_strong_mov_speed
+				node_2d.position.y -= zoom_strong_mov_speed * delta
 			if move_down:
-				node_2d.position.y += zoom_strong_mov_speed
+				node_2d.position.y += zoom_strong_mov_speed * delta
 			if move_left:
-				node_2d.position.x -= zoom_strong_mov_speed
+				node_2d.position.x -= zoom_strong_mov_speed * delta
 			if move_right:
-				node_2d.position.x += zoom_strong_mov_speed
+				node_2d.position.x += zoom_strong_mov_speed * delta
 			
-			#SMALL MOVEMENTS
+			# SMALL MOVEMENTS
 			if s_move_up:
-				node_2d.position.y -= zoom_small_mov_speed
+				node_2d.position.y -= zoom_small_mov_speed * delta
 			if s_move_down:
-				node_2d.position.y += zoom_small_mov_speed
+				node_2d.position.y += zoom_small_mov_speed * delta
 			if s_move_left:
-				node_2d.position.x -= zoom_small_mov_speed
+				node_2d.position.x -= zoom_small_mov_speed * delta
 			if s_move_right:
-				node_2d.position.x += zoom_small_mov_speed
-		
+				node_2d.position.x += zoom_small_mov_speed * delta
 	else:
 		current_zoom_mult = 1
 		node_2d.position = start_centre_position
+
 
 
 #STRONG MOVEMENTS

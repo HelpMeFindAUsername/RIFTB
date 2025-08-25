@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
-size = Vector2(1152, 237.5)
+size = Vector2(1458, 237.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a4kck"]
-size = Vector2(287, 648)
+size = Vector2(378.219, 787.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8pr0"]
 size = Vector2(742, 65)
@@ -46,29 +46,25 @@ script = ExtResource("1_w55bj")
 [node name="Up_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Up_Move"]
-visible = false
-position = Vector2(576, 60)
+position = Vector2(575, 60)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Down_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Down_Move"]
-visible = false
 position = Vector2(576, 588)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Left_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Left_Move"]
-visible = false
-position = Vector2(60, 324)
+position = Vector2(37.2813, 325.5)
 shape = SubResource("RectangleShape2D_a4kck")
 
 [node name="Right_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Right_Move"]
-visible = false
-position = Vector2(1092, 324)
+position = Vector2(1114.89, 311.375)
 shape = SubResource("RectangleShape2D_a4kck")
 
 [node name="Small_Movements" type="Node" parent="CanvasLayer"]

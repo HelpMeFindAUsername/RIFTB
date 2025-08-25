@@ -6,6 +6,8 @@ var health : int = 1
 @onready var target = $".."
 @export var scale_mult := Vector2(1, 1)
 
+var hit_force := Vector2(1, 1)
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_entered:
@@ -16,6 +18,7 @@ func _input(event):
 
 func _process(_delta):
 	if health <= 0:
+		apply_central_impulse(Vector2(0, -1))
 		animation_player.play("falling")
 
 func _physics_process(_delta):

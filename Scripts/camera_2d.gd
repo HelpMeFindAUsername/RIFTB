@@ -9,6 +9,7 @@ var current_zoom_mult : int
 @export var zoom_speed = 0.01
 @export var zoom_strong_mov_speed = 0.15
 @export var zoom_small_mov_speed = 0.05
+@export var can_camera_move : bool = true
 
 var zoom_starting_position : Vector2
 
@@ -56,25 +57,26 @@ func _process(_delta):
 			node_2d.position = lerp(zoom_starting_position, get_global_mouse_position(), camera_sens)
 		current_zoom_mult = zoom_mult
 		
-		#STRONG MOVEMENTS
-		if move_up:
-			node_2d.position.y -= zoom_strong_mov_speed
-		if move_down:
-			node_2d.position.y += zoom_strong_mov_speed
-		if move_left:
-			node_2d.position.x -= zoom_strong_mov_speed
-		if move_right:
-			node_2d.position.x += zoom_strong_mov_speed
-		
-		#SMALL MOVEMENTS
-		if s_move_up:
-			node_2d.position.y -= zoom_small_mov_speed
-		if s_move_down:
-			node_2d.position.y += zoom_small_mov_speed
-		if s_move_left:
-			node_2d.position.x -= zoom_small_mov_speed
-		if s_move_right:
-			node_2d.position.x += zoom_small_mov_speed
+		if can_camera_move:
+			#STRONG MOVEMENTS
+			if move_up:
+				node_2d.position.y -= zoom_strong_mov_speed
+			if move_down:
+				node_2d.position.y += zoom_strong_mov_speed
+			if move_left:
+				node_2d.position.x -= zoom_strong_mov_speed
+			if move_right:
+				node_2d.position.x += zoom_strong_mov_speed
+			
+			#SMALL MOVEMENTS
+			if s_move_up:
+				node_2d.position.y -= zoom_small_mov_speed
+			if s_move_down:
+				node_2d.position.y += zoom_small_mov_speed
+			if s_move_left:
+				node_2d.position.x -= zoom_small_mov_speed
+			if s_move_right:
+				node_2d.position.x += zoom_small_mov_speed
 		
 	else:
 		current_zoom_mult = 1

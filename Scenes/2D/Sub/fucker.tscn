@@ -1,13 +1,16 @@
 [gd_scene load_steps=8 format=3 uid="uid://cfmsgewyvhf47"]
 
 [ext_resource type="Script" uid="uid://bqagji1ioim44" path="res://Scripts/fucker.gd" id="1_8jy7u"]
-[ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_w7l0u"]
+[ext_resource type="Texture2D" uid="uid://cmnleroi4bs7o" path="res://Assets/Fucker/Screaming_Fucker_WIP.png" id="2_8jy7u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adw80"]
-size = Vector2(406, 527)
+size = Vector2(414, 527)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwcaj"]
 size = Vector2(306, 470)
+
+[sub_resource type="Animation" id="Animation_46dx1"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_8jy7u"]
 resource_name = "walking"
@@ -25,9 +28,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 50), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_46dx1"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fv61g"]
 _data = {
 &"RESET": SubResource("Animation_46dx1"),
@@ -39,18 +39,19 @@ script = ExtResource("1_8jy7u")
 
 [node name="Fucker_Sprite_WIP" type="Sprite2D" parent="."]
 position = Vector2(0, 3.57669)
-scale = Vector2(2.35938, 3.51563)
-texture = ExtResource("1_w7l0u")
+texture = ExtResource("2_8jy7u")
 centered = false
 
 [node name="Fucker_Graze_Hitbox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_Graze_Hitbox"]
-position = Vector2(147, 227.5)
+position = Vector2(151, 225)
 shape = SubResource("RectangleShape2D_adw80")
 debug_color = Color(0.998407, 0, 0.142817, 0.42)
 
 [node name="Fucker_HitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_HitBox"]
 position = Vector2(151, 225)

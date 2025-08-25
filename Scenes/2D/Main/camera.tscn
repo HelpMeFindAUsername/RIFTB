@@ -46,24 +46,28 @@ script = ExtResource("1_w55bj")
 [node name="Up_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Up_Move"]
+visible = false
 position = Vector2(576, 60)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Down_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Down_Move"]
+visible = false
 position = Vector2(576, 588)
 shape = SubResource("RectangleShape2D_j0yne")
 
 [node name="Left_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Left_Move"]
+visible = false
 position = Vector2(60, 324)
 shape = SubResource("RectangleShape2D_a4kck")
 
 [node name="Right_Move" type="Area2D" parent="CanvasLayer/Strong_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Strong_Movements/Right_Move"]
+visible = false
 position = Vector2(1092, 324)
 shape = SubResource("RectangleShape2D_a4kck")
 
@@ -72,24 +76,28 @@ shape = SubResource("RectangleShape2D_a4kck")
 [node name="Small_Up_Move" type="Area2D" parent="CanvasLayer/Small_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Small_Movements/Small_Up_Move"]
+visible = false
 position = Vector2(576, 211.5)
 shape = SubResource("RectangleShape2D_f8pr0")
 
 [node name="Small_Down_Move" type="Area2D" parent="CanvasLayer/Small_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Small_Movements/Small_Down_Move"]
+visible = false
 position = Vector2(576, 436.53)
 shape = SubResource("RectangleShape2D_f8pr0")
 
 [node name="Small_Left_Move" type="Area2D" parent="CanvasLayer/Small_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Small_Movements/Small_Left_Move"]
+visible = false
 position = Vector2(234.775, 323.9)
 shape = SubResource("RectangleShape2D_fclq7")
 
 [node name="Small_Right_Move" type="Area2D" parent="CanvasLayer/Small_Movements"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Small_Movements/Small_Right_Move"]
+visible = false
 position = Vector2(917.11, 323.9)
 shape = SubResource("RectangleShape2D_fclq7")
 

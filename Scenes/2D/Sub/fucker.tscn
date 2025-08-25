@@ -1,7 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfmsgewyvhf47"]
+[gd_scene load_steps=12 format=3 uid="uid://cfmsgewyvhf47"]
 
 [ext_resource type="Script" uid="uid://bqagji1ioim44" path="res://Scripts/fucker.gd" id="1_8jy7u"]
-[ext_resource type="Texture2D" uid="uid://cmnleroi4bs7o" path="res://Assets/Fucker/Screaming_Fucker_WIP.png" id="2_8jy7u"]
+[ext_resource type="Texture2D" uid="uid://bpxtd6ioxe0ks" path="res://Assets/Fucker/Screaming_Fucker_WIP-Sheet.png" id="2_8jy7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46dx1"]
+atlas = ExtResource("2_8jy7u")
+region = Rect2(0, 0, 300, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv61g"]
+atlas = ExtResource("2_8jy7u")
+region = Rect2(300, 0, 300, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as6cn"]
+atlas = ExtResource("2_8jy7u")
+region = Rect2(600, 0, 300, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xaqun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46dx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv61g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as6cn")
+}],
+"loop": true,
+"name": &"screaming",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adw80"]
 size = Vector2(414, 527)
@@ -18,7 +47,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Fucker_Sprite_WIP:position")
+tracks/0/path = NodePath("Fucker_Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,9 +66,11 @@ _data = {
 [node name="Fucker" type="Node2D"]
 script = ExtResource("1_8jy7u")
 
-[node name="Fucker_Sprite_WIP" type="Sprite2D" parent="."]
-position = Vector2(0, 3.57669)
-texture = ExtResource("2_8jy7u")
+[node name="Fucker_Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xaqun")
+animation = &"screaming"
+autoplay = "screaming"
+frame_progress = 0.821282
 centered = false
 
 [node name="Fucker_Graze_Hitbox" type="Area2D" parent="."]

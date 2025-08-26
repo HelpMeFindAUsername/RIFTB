@@ -54,11 +54,10 @@ points_assigned = 2
 [node name="Fucker" parent="2D" instance=ExtResource("2_gov5m")]
 position = Vector2(824, 155)
 
-[node name="Fucker_AI_WIP" parent="." instance=ExtResource("4_gov5m")]
+[node name="Fucker_AI_WIP" parent="2D" instance=ExtResource("4_gov5m")]
 position = Vector2(162, 354)
 
 [node name="UI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0

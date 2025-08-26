@@ -6,7 +6,6 @@ extends Node2D
 
 var can_change_status : bool = false
 
-var is_looking : bool = 0
 var moving : int = 1
 @export var mov_speed : int = 100
 
@@ -27,17 +26,17 @@ func _process(delta: float):
 	
 	if (randoMov == 0 or randoMov == 7) and can_change_status:
 		moving = 0
-		is_looking = true
+		Global.is_looking = true
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	elif randoMov in rangeLX and can_change_status:
 		moving = -1
-		is_looking = false
+		Global.is_looking = false
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	elif randoMov in rangeDX and can_change_status:
 		moving = 1
-		is_looking = false
+		Global.is_looking = false
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	

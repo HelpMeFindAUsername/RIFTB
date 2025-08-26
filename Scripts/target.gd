@@ -14,22 +14,25 @@ var hit_force := Vector2(1, 1)
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_entered:
-			if event.pressed and health > 0:
-				print("TARGET HIT")
-				health -= 1
-				Global.player_score += 1
-			
-			if event.pressed and health <= 0:
-				print("TARGET DESTROYED")
-				health -= 1
-				Global.player_score += points_assigned
-			
-			if event.pressed and health <= -3:
-				print("TARGET FUCKED UP")
-				target_entered = false
-				target_hitbox.queue_free()
-				random_sprite.queue_free()
-				_spawn_fragments() # call fragments spawn
+			if Global.is_looking:
+				print("GAME OVER")
+			else:
+				if event.pressed and health > 0:
+					print("TARGET HIT")
+					health -= 1
+					Global.player_score += 1
+				
+				if event.pressed and health <= 0:
+					print("TARGET DESTROYED")
+					health -= 1
+					Global.player_score += points_assigned
+				
+				if event.pressed and health <= -3:
+					print("TARGET FUCKED UP")
+					target_entered = false
+					target_hitbox.queue_free()
+					random_sprite.queue_free()
+					_spawn_fragments() # call fragments spawn
 
 
 func _process(_delta):

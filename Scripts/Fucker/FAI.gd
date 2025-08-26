@@ -1,24 +1,26 @@
-extends Node2D
+extends RigidBody2D
 
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var timer: Timer = $Wait_Time
-@onready var delay: Timer = $Delay
+@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var wait_time = $Wait_Time
+@onready var delay = $Delay
 
 var can_change_status : bool = false
 
-var is_looking : bool = 0
 var moving : int = 1
 @export var mov_speed : int = 100
+@export var min_x: float = -50.0
+@export var max_x: float = 1202.0
 
 func _process(delta: float):
-	if moving == -1:
-		animated_sprite_2d.animation = "walking_left"
-		animated_sprite_2d.flip_h = false
-	elif moving == 1:
-		animated_sprite_2d.animation = "walking_left"
-		animated_sprite_2d.flip_h = true
-	elif moving == 0:
-		animated_sprite_2d.animation = "looking"
+	if animated_sprite_2d:
+		if moving == -1:
+			animated_sprite_2d.animation = "walking_left"
+			animated_sprite_2d.flip_h = false
+		elif moving == 1:
+			animated_sprite_2d.animation = "walking_left"
+			animated_sprite_2d.flip_h = true
+		elif moving == 0:
+			animated_sprite_2d.animation = "looking"
 	
 #Random Movement
 	var randoMov : int = randi_range(0,7)
@@ -27,23 +29,28 @@ func _process(delta: float):
 	
 	if (randoMov == 0 or randoMov == 7) and can_change_status:
 		moving = 0
-		is_looking = true
+		Global.is_looking = true
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	elif randoMov in rangeLX and can_change_status:
 		moving = -1
-		is_looking = false
+		Global.is_looking = false
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	elif randoMov in rangeDX and can_change_status:
 		moving = 1
-		is_looking = false
+		Global.is_looking = false
 		can_change_status = false
 		delay.start(randf_range(3.0, 6.0))
 	
 	self.position.x += mov_speed * moving * delta
-
-
+	
+	if position.x <= min_x and moving == -1:
+		print("HIT BORDER")
+		moving = 1
+	elif position.x >= max_x and moving == 1:
+		print("HIT BORDER")
+		moving = -1
 
 func _on_delay_timeout() -> void:
 	can_change_status = true

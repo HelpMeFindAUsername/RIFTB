@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b28eixq62pntf"]
+[gd_scene load_steps=10 format=3 uid="uid://b28eixq62pntf"]
 
 [ext_resource type="Texture2D" uid="uid://do38gql1j7myu" path="res://Assets/Fucker/Fucker_PlaceHolder-Sheet.png" id="1_afeb4"]
 [ext_resource type="Script" uid="uid://viqq7oxgvdg4" path="res://Scripts/Fucker/FAI.gd" id="1_psboi"]
+[ext_resource type="PackedScene" uid="uid://cfmsgewyvhf47" path="res://Scenes/2D/Sub/Fucker/fucker.tscn" id="3_ij1oc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psboi"]
 atlas = ExtResource("1_afeb4")
@@ -19,7 +20,7 @@ region = Rect2(0, 0, 300, 450)
 atlas = ExtResource("1_afeb4")
 region = Rect2(300, 0, 300, 450)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7kmfo"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ij1oc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -54,12 +55,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Fucker_AI_WIP" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_psboi"]
+size = Vector2(298, 452)
+
+[node name="Fucker_AI_WIP" type="RigidBody2D"]
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_psboi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_7kmfo")
-animation = &"looking"
+sprite_frames = SubResource("SpriteFrames_ij1oc")
+animation = &"walking_left"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_psboi")
 
 [node name="Wait_Time" type="Timer" parent="."]
 wait_time = 3.0
@@ -69,5 +79,8 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="Fucker" parent="." instance=ExtResource("3_ij1oc")]
+position = Vector2(-150, -225)
 
 [connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

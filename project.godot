@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="RIFTB"
-run/main_scene="uid://dmdntay685qki"
+run/main_scene="uid://dbqe8lxyfj3ug"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=60
 run/delta_smoothing=false

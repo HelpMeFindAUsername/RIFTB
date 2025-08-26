@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://b28eixq62pntf"]
+
+[ext_resource type="Texture2D" uid="uid://do38gql1j7myu" path="res://Assets/Fucker/Fucker_PlaceHolder-Sheet.png" id="1_afeb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psboi"]
+atlas = ExtResource("1_afeb4")
+region = Rect2(600, 0, 300, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij1oc"]
+atlas = ExtResource("1_afeb4")
+region = Rect2(900, 0, 300, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ns1i"]
+atlas = ExtResource("1_afeb4")
+region = Rect2(0, 0, 300, 450)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru6ip"]
+atlas = ExtResource("1_afeb4")
+region = Rect2(300, 0, 300, 450)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7kmfo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psboi")
+}],
+"loop": true,
+"name": &"looking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij1oc")
+}],
+"loop": true,
+"name": &"not_looking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ns1i")
+}],
+"loop": true,
+"name": &"walking_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru6ip")
+}],
+"loop": true,
+"name": &"walking_right",
+"speed": 5.0
+}]
+
+[node name="Fucker_AI_WIP" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7kmfo")
+animation = &"looking"

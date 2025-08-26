@@ -74,17 +74,17 @@ frame_progress = 0.144035
 centered = false
 
 [node name="Fucker_Graze_Hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_Graze_Hitbox"]
+visible = false
 position = Vector2(151, 225)
 shape = SubResource("RectangleShape2D_adw80")
 debug_color = Color(0.998407, 0, 0.142817, 0.42)
 
 [node name="Fucker_HitBox" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fucker_HitBox"]
+visible = false
 position = Vector2(151, 225)
 shape = SubResource("RectangleShape2D_jwcaj")
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmdntay685qki"]
+[gd_scene load_steps=6 format=3 uid="uid://dmdntay685qki"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_4551s"]
-[ext_resource type="PackedScene" uid="uid://cfmsgewyvhf47" path="res://Scenes/2D/Sub/fucker.tscn" id="2_gov5m"]
+[ext_resource type="PackedScene" uid="uid://cfmsgewyvhf47" path="res://Scenes/2D/Sub/Fucker/fucker.tscn" id="2_gov5m"]
 [ext_resource type="PackedScene" uid="uid://rthxfyma5sfk" path="res://Scenes/2D/Sub/target.tscn" id="3_kxp6f"]
+[ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="4_gov5m"]
 
 [sub_resource type="GDScript" id="GDScript_8gbba"]
 script/source = "extends Label
@@ -53,7 +54,11 @@ points_assigned = 2
 [node name="Fucker" parent="2D" instance=ExtResource("2_gov5m")]
 position = Vector2(824, 155)
 
+[node name="Fucker_AI_WIP" parent="." instance=ExtResource("4_gov5m")]
+position = Vector2(162, 354)
+
 [node name="UI" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0

@@ -48,9 +48,9 @@ func _on_target_hitbox_mouse_entered() -> void:
 func _on_target_hitbox_mouse_exited() -> void:
 	target_entered = false
 
-# -----------------
+
 # Fragment Spawner
-# -----------------
+# -----------------------------------------------------
 func _spawn_fragments():
 	var tex := random_sprite.texture
 	if tex == null:
@@ -60,8 +60,10 @@ func _spawn_fragments():
 		return
 	
 	var parent_region : Rect2 = random_sprite.region_rect
-	var cols := 2  # how many cuts horizontally
-	var rows := 2  # how many cuts vertically
+	var parent_scale : Vector2 = random_sprite.scale  # get parent scale
+	
+	var cols := 2  # horizontal cuts
+	var rows := 2  # vertical cuts
 	var piece_size = Vector2(parent_region.size.x / cols, parent_region.size.y / rows)
 	
 	for y in range(rows):
@@ -80,6 +82,7 @@ func _spawn_fragments():
 			)
 			spr.centered = true
 			spr.position = Vector2.ZERO
+			spr.scale = parent_scale
 			
 			# give physics impulse
 			var impulse = Vector2(randf_range(-200,200), randf_range(-200,-50))
@@ -93,3 +96,4 @@ func _spawn_fragments():
 			t.timeout.connect(frag.queue_free)
 			frag.add_child(t)
 			t.start()
+# -----------------------------------------------------

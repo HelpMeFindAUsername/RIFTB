@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgsu3v8uek4ym"]
 
-[ext_resource type="Script" path="res://Scripts/Dialogue_Box/dialogue_system.gd" id="1_r12a2"]
+[ext_resource type="Script" uid="uid://c35rqxquerogg" path="res://Scripts/Dialogue_Box/dialogue_system.gd" id="1_r12a2"]
 [ext_resource type="FontFile" uid="uid://c6o4ky2ypismv" path="res://Fonts/Junction/Junction-regular.otf" id="2_7ywy7"]
 [ext_resource type="Texture2D" uid="uid://cjhxvkyn0l524" path="res://Assets/Dialogue_Box/Dialogue_Box.png" id="2_gvs7d"]
 [ext_resource type="FontFile" uid="uid://bgrrvyqfxinas" path="res://Fonts/Junction/Junction-bold.otf" id="3_gvs7d"]

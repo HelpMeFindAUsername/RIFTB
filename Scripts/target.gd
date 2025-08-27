@@ -3,6 +3,7 @@ extends RigidBody2D
 var target_entered : bool = false
 @export var health : int = 1
 @export var points_assigned : int = 1
+@export var is_prize : bool = false
 @onready var animation_player = $AnimationPlayer
 @onready var target = $".."
 @export var scale_mult := Vector2(1, 1)
@@ -15,32 +16,34 @@ var hit_force := Vector2(1, 1)
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_entered:
-			if event.pressed and health > 0:
-				print("TARGET HIT")
-				health -= 1
-				Global.player_score += 1
+			if event.pressed:
+				if health > 0:
+					print("TARGET HIT")
+					health -= 1
+					Global.player_score += 1
+				
+				if health <= 0:
+					print("TARGET DESTROYED")
+					health -= 1
+					Global.player_score += points_assigned
+				
+				if health <= -3:
+					print("TARGET FUCKED UP")
+					target_entered = false
+					target_hitbox.queue_free()
+					random_sprite.queue_free()
+					_spawn_fragments() # call fragments spawn
+					
+					if Global.is_looking and is_prize:
+						Global.spotted = true
 			
-			if event.pressed and health <= 0:
-				print("TARGET DESTROYED")
-				health -= 1
-				Global.player_score += points_assigned
-			
-			if event.pressed and health <= -3:
-				print("TARGET FUCKED UP")
-				target_entered = false
-				target_hitbox.queue_free()
-				random_sprite.queue_free()
-				_spawn_fragments() # call fragments spawn
+
 
 
 func _process(_delta):
 	if health <= 0:
 		animation_player.play("falling")
 	
-	if random_sprite:
-		target_collision.scale = random_sprite.scale
-	else:
-		return
 
 func _physics_process(_delta):
 	if health <= 0:

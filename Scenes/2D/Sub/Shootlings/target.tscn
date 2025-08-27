@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://rthxfyma5sfk"]
 
-[ext_resource type="Script" uid="uid://checqkkyahuvl" path="res://Scripts/target.gd" id="1_ls7vh"]
+[ext_resource type="Script" path="res://Scripts/target.gd" id="1_ls7vh"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_vq1qf"]
 [ext_resource type="Texture2D" uid="uid://cjjcpeen2unba" path="res://Assets/Target/Target-Sheet.png" id="3_jgpce"]
 
@@ -64,8 +64,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ef517"]
 _data = {
-&"RESET": SubResource("Animation_r2kur"),
-&"falling": SubResource("Animation_jgpce")
+"RESET": SubResource("Animation_r2kur"),
+"falling": SubResource("Animation_jgpce")
 }
 
 [node name="Target" type="RigidBody2D"]
@@ -104,7 +104,7 @@ script = SubResource("GDScript_ef517")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_ef517")
+"": SubResource("AnimationLibrary_ef517")
 }
 
 [connection signal="mouse_entered" from="Random_Sprite/Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]

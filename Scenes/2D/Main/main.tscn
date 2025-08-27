@@ -1,10 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbqe8lxyfj3ug"]
+[gd_scene load_steps=5 format=3 uid="uid://dbqe8lxyfj3ug"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_560fx"]
 [ext_resource type="PackedScene" uid="uid://rthxfyma5sfk" path="res://Scenes/2D/Sub/target.tscn" id="2_4551s"]
 [ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="3_4551s"]
 
+[sub_resource type="GDScript" id="GDScript_4551s"]
+script/source = "extends Node2D
+
+var click_pos := Vector2(0,0)
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			click_pos = Global.mouse_pos
+			print(\"click\")
+			draw
+			queue_redraw()
+
+func _draw():
+	draw_circle(click_pos, 10.0, Color.FOREST_GREEN)
+"
+
 [node name="Main" type="Node2D"]
+script = SubResource("GDScript_4551s")
 
 [node name="Camera" parent="." instance=ExtResource("1_560fx")]
 

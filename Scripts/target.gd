@@ -8,6 +8,7 @@ var target_entered : bool = false
 @export var scale_mult := Vector2(1, 1)
 @onready var random_sprite: Sprite2D = $Random_Sprite
 @onready var target_hitbox: Area2D = $Random_Sprite/Target_Hitbox
+@onready var target_collision = $Target_Collision
 
 var hit_force := Vector2(1, 1)
 
@@ -35,6 +36,11 @@ func _input(event):
 func _process(_delta):
 	if health <= 0:
 		animation_player.play("falling")
+	
+	if random_sprite:
+		target_collision.scale = random_sprite.scale
+	else:
+		return
 
 func _physics_process(_delta):
 	if health <= 0:

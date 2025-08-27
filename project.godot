@@ -24,6 +24,7 @@ FAI="*res://Scripts/Fucker/FAI.gd"
 
 [display]
 
+window/size/resizable=false
 window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

@@ -20,7 +20,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://Resources/Global_Variables.gd"
-FAI="*res://Scripts/Fucker/FAI.gd"
 
 [display]
 

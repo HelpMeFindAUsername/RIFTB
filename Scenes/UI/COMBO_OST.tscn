@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmgq6p15t4gws"]
+[gd_scene load_steps=14 format=3 uid="uid://dmgq6p15t4gws"]
 
 [ext_resource type="AudioStream" uid="uid://drwpmnspgltrp" path="res://Music&Sounds/WAV/INST/CLAP.wav" id="1_cplch"]
 [ext_resource type="AudioStream" uid="uid://co0f2huj26l8m" path="res://Music&Sounds/WAV/INST/BITE.wav" id="2_4pi58"]
@@ -12,10 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://cw014p0343qn1" path="res://Music&Sounds/WAV/INST/CLAV.wav" id="9_wxwby"]
 [ext_resource type="AudioStream" uid="uid://c2q0udjfk0spk" path="res://Music&Sounds/WAV/INST/SOUL.wav" id="10_eydi0"]
 [ext_resource type="AudioStream" uid="uid://byhhj1ej8q7p7" path="res://Music&Sounds/WAV/INST/STRUT.wav" id="11_dtr0n"]
-[ext_resource type="AudioStream" uid="uid://mqo27gowx14a" path="res://Music&Sounds/WAV/INST/WAVE.wav" id="12_a2q8j"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gguaa"]
-stream_count = 13
+stream_count = 12
 stream_0/stream = ExtResource("2_puc2d")
 stream_0/volume = 0.0
 stream_1/stream = ExtResource("2_4pi58")
@@ -40,8 +39,6 @@ stream_10/stream = ExtResource("10_eydi0")
 stream_10/volume = 0.0
 stream_11/stream = ExtResource("11_dtr0n")
 stream_11/volume = 0.0
-stream_12/stream = ExtResource("12_a2q8j")
-stream_12/volume = 0.0
 
 [node name="COMBO_OST" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_gguaa")

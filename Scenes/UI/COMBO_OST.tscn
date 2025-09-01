@@ -49,5 +49,4 @@ func _ready():
 
 [node name="COMBO_OST" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_gguaa")
-autoplay = true
 script = SubResource("GDScript_l38p1")

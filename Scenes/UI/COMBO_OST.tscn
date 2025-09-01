@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmgq6p15t4gws"]
+[gd_scene load_steps=15 format=3 uid="uid://dmgq6p15t4gws"]
 
 [ext_resource type="AudioStream" uid="uid://drwpmnspgltrp" path="res://Music&Sounds/WAV/INST/CLAP.wav" id="1_cplch"]
 [ext_resource type="AudioStream" uid="uid://co0f2huj26l8m" path="res://Music&Sounds/WAV/INST/BITE.wav" id="2_4pi58"]
@@ -40,7 +40,14 @@ stream_10/volume = 0.0
 stream_11/stream = ExtResource("11_dtr0n")
 stream_11/volume = 0.0
 
+[sub_resource type="GDScript" id="GDScript_l38p1"]
+script/source = "extends AudioStreamPlayer
+
+func _ready():
+	play()
+"
+
 [node name="COMBO_OST" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_gguaa")
-volume_db = -20.0
 autoplay = true
+script = SubResource("GDScript_l38p1")

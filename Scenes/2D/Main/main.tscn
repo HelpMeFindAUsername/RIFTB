@@ -34,6 +34,7 @@ health = 3
 [node name="Target_Spawner" parent="Front" instance=ExtResource("6_i4dpe")]
 position = Vector2(425, 325)
 health = 3
+is_prize = true
 
 [node name="Target_Spawner2" parent="Front" instance=ExtResource("6_i4dpe")]
 position = Vector2(552, 324)

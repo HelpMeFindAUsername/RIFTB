@@ -13,10 +13,15 @@ var target_entered : bool = false
 
 var hit_force := Vector2(1, 1)
 
+var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_entered:
 			if event.pressed:
+				var bullet_hole_instance = bullet_hole.instantiate()
+				bullet_hole_instance.position = get_local_mouse_position()
+				random_sprite.add_child(bullet_hole_instance)
 				if health > 0:
 					print("TARGET HIT")
 					health -= 1
@@ -33,6 +38,7 @@ func _input(event):
 					if target_hitbox:
 						target_hitbox.queue_free()
 						random_sprite.queue_free()
+						bullet_hole_instance.queue_free()
 					_spawn_fragments() # call fragments spawn
 					
 					if Global.is_looking and is_prize:

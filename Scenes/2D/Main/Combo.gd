@@ -1,4 +1,4 @@
 extends Label
 
 func _process(_delta):
-	text = "ComboMeter: " + str(Global.player_combo)
+	text = "Combo_Meter: " + str(Global.player_combo)

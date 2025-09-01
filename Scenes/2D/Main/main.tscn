@@ -53,6 +53,8 @@ position = Vector2(194, 401)
 [node name="Vignette" parent="." instance=ExtResource("6_cuaqk")]
 
 [node name="COMBO_OST" parent="." instance=ExtResource("6_cnd8s")]
-volume_db = -37.477
+volume_db = -20.0
+autoplay = false
+max_polyphony = 64
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_cuaqk")]

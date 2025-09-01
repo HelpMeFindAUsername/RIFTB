@@ -15,13 +15,7 @@ var is_talking : bool = true
 var debug_dialogue_path = "res://Resources/Dialogues/placeholder.json"
 var dialogue_path = "res://Resources/Dialogues/placeholder.json"
 
-var valid_check = preload("res://Cucu.PNG")
-
 func _ready():
-	if !valid_check:
-		get_tree().quit()
-	else:
-		return
 	dialogue_path = debug_dialogue_path
 
 func _process(_delta):
@@ -30,6 +24,6 @@ func _process(_delta):
 func dialogue_check():
 	dialogue_path = debug_dialogue_path
 
-func sound_track_change():
-	if player_combo < 5:
-		pass
+#func sound_track_change():
+#	if player_combo < 5:
+#		pass

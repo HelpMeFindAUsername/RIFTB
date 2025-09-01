@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbqe8lxyfj3ug"]
+[gd_scene load_steps=8 format=3 uid="uid://dbqe8lxyfj3ug"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_560fx"]
 [ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="3_4551s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmgq6p15t4gws" path="res://Scenes/UI/COMBO_OST.tscn" id="6_cnd8s"]
 [ext_resource type="PackedScene" uid="uid://c0qhcvigjknwd" path="res://Shaders/Vignette/vignette.tscn" id="6_cuaqk"]
 [ext_resource type="PackedScene" uid="uid://b74wahwffm8lg" path="res://Scenes/2D/Sub/Shootlings/Spawner/target_spawner.tscn" id="6_i4dpe"]
+[ext_resource type="PackedScene" uid="uid://qoe5p8v4rj8y" path="res://Scenes/UI/pause_menu.tscn" id="7_cuaqk"]
 
 [node name="Main" type="Node2D"]
 
@@ -52,3 +53,6 @@ position = Vector2(194, 401)
 [node name="Vignette" parent="." instance=ExtResource("6_cuaqk")]
 
 [node name="COMBO_OST" parent="." instance=ExtResource("6_cnd8s")]
+volume_db = -37.477
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_cuaqk")]

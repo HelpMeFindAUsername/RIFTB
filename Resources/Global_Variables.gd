@@ -2,9 +2,9 @@ extends Node
 
 var player_score : float = 0
 
-var player_combo: int = 0
+var player_combo: float = 1
 
-var is_looking : bool = 0
+var is_looking : bool = false
 
 var player_bullet_strength := Vector2(randi_range(-200, 200), -200) #VARIABLE FOR TARGET IMPULSE
 

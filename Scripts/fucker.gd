@@ -10,6 +10,7 @@ func _input(event):
 			if entered_hit:
 				print("HIT FUCKER")
 				Global.player_score -= 1
+				Global.player_combo = 1
 			elif entered_graze and Global.hit:
 				print("GRAZED FUCKER")
 				Global.player_score += 0.5

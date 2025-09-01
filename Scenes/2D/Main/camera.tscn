@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=10 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
 [ext_resource type="Script" uid="uid://c1wdncwlg2a2s" path="res://Scenes/2D/Main/pointsDisplay.gd" id="3_j0yne"]
+[ext_resource type="Script" uid="uid://tida1mxev7ud" path="res://Scenes/2D/Main/Combo.gd" id="4_fclq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
 size = Vector2(1458, 237.5)
@@ -118,6 +119,16 @@ text = "Your score: "
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_j0yne")
+
+[node name="Combo" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 149.0
+offset_right = 250.0
+offset_bottom = 270.0
+text = "ComboMult: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_fclq7")
 
 [connection signal="mouse_entered" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]

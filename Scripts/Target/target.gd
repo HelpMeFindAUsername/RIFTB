@@ -3,6 +3,7 @@ extends RigidBody2D
 var target_entered : bool = false
 @export var health : int = 1
 @export var points_assigned : float = 1
+@export var comboMult : float = 1
 @export var is_prize : bool = false
 @onready var animation_player = $AnimationPlayer
 @onready var target = $".."
@@ -10,7 +11,9 @@ var target_entered : bool = false
 @onready var random_sprite: Sprite2D = $Random_Sprite
 @onready var target_hitbox: Area2D = $Random_Sprite/Target_Hitbox
 @onready var target_collision = $Target_Collision
+@onready var combo_timer: Timer = $ComboTimer
 
+var is_falling : bool = false
 var hit_force := Vector2(1, 1)
 
 var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
@@ -25,14 +28,16 @@ func _input(event):
 				bullet_hole_instance.rotation = randi_range(1, 359)
 				random_sprite.add_child(bullet_hole_instance)
 				if health > 0:
+					is_falling = false
 					print("TARGET HIT")
 					health -= 1
-					Global.player_score += points_assigned
-				
-				if health <= 0:
+					Global.player_score += assPoints()
+					Global.player_combo += 1
+				else:
+					is_falling = true
 					print("TARGET DESTROYED")
 					health -= 1
-					Global.player_score += points_assigned/2
+					Global.player_score += assPoints()
 				
 				if health <= -3:
 					print("TARGET FUCKED UP")
@@ -45,6 +50,8 @@ func _input(event):
 					
 					if Global.is_looking and is_prize:
 						Global.spotted = true
+		#else:
+		#	Global.player_combo = 1
 						
 	Global.hit = false
 
@@ -67,6 +74,11 @@ func _on_target_hitbox_mouse_entered() -> void:
 func _on_target_hitbox_mouse_exited() -> void:
 	target_entered = false
 
+func assPoints() -> float:
+	if is_falling:
+		return (points_assigned/2) * comboMult * Global.player_combo
+	else:
+		return points_assigned * comboMult * Global.player_combo
 
 # Fragment Spawner
 # -----------------------------------------------------

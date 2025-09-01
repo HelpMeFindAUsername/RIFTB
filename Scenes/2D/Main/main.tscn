@@ -56,3 +56,4 @@ position = Vector2(194, 401)
 volume_db = -37.477
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_cuaqk")]
+visible = false

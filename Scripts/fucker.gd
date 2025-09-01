@@ -9,9 +9,10 @@ func _input(event):
 		if event.pressed:
 			if entered_hit:
 				print("HIT FUCKER")
-			if entered_graze and !entered_hit:
+				Global.player_score -= 1
+			elif entered_graze and Global.hit:
 				print("GRAZED FUCKER")
-
+				Global.player_score += 0.5
 
 #GRAZE ENTERED / EXITED
 func _on_fucker_graze_hitbox_mouse_entered():

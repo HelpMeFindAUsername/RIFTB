@@ -2,7 +2,7 @@ extends RigidBody2D
 
 var target_entered : bool = false
 @export var health : int = 1
-@export var points_assigned : int = 1
+@export var points_assigned : float = 1
 @export var is_prize : bool = false
 @onready var animation_player = $AnimationPlayer
 @onready var target = $".."
@@ -18,6 +18,7 @@ var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_entered:
+			Global.hit = true
 			if event.pressed:
 				var bullet_hole_instance = bullet_hole.instantiate()
 				bullet_hole_instance.position = get_local_mouse_position()
@@ -26,12 +27,12 @@ func _input(event):
 				if health > 0:
 					print("TARGET HIT")
 					health -= 1
-					Global.player_score += 1
+					Global.player_score += points_assigned
 				
 				if health <= 0:
 					print("TARGET DESTROYED")
 					health -= 1
-					Global.player_score += points_assigned
+					Global.player_score += points_assigned/2
 				
 				if health <= -3:
 					print("TARGET FUCKED UP")
@@ -44,7 +45,8 @@ func _input(event):
 					
 					if Global.is_looking and is_prize:
 						Global.spotted = true
-			
+						
+	Global.hit = false
 
 
 func _process(_delta):

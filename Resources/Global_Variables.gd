@@ -1,6 +1,6 @@
 extends Node
 
-var player_score : int = 0
+var player_score : float = 0
 
 var player_combo: int = 0
 
@@ -11,6 +11,8 @@ var player_bullet_strength := Vector2(randi_range(-200, 200), -200) #VARIABLE FO
 var spotted : bool = false
 
 var is_talking : bool = true
+
+var hit : bool = false
 
 var debug_dialogue_path = "res://Resources/Dialogues/placeholder.json"
 var dialogue_path = "res://Resources/Dialogues/placeholder.json"

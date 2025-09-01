@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=9 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
+[ext_resource type="Script" uid="uid://c1wdncwlg2a2s" path="res://Scenes/2D/Main/pointsDisplay.gd" id="3_j0yne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
 size = Vector2(1458, 237.5)
@@ -108,6 +109,15 @@ text = "CURRENT ZOOM MULT"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = SubResource("GDScript_a4kck")
+
+[node name="Points" type="Label" parent="CanvasLayer"]
+offset_top = 76.0
+offset_right = 249.0
+offset_bottom = 197.0
+text = "Your score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_j0yne")
 
 [connection signal="mouse_entered" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]

@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var wait_time = $Wait_Time
 @onready var delay = $Delay
 
 var can_change_status : bool = false

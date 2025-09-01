@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmgq6p15t4gws" path="res://Scenes/UI/COMBO_OST.tscn" id="6_cnd8s"]
 [ext_resource type="PackedScene" uid="uid://c0qhcvigjknwd" path="res://Shaders/Vignette/vignette.tscn" id="6_cuaqk"]
 [ext_resource type="PackedScene" uid="uid://b74wahwffm8lg" path="res://Scenes/2D/Sub/Shootlings/Spawner/target_spawner.tscn" id="6_i4dpe"]
-[ext_resource type="PackedScene" uid="uid://qoe5p8v4rj8y" path="res://Scenes/UI/pause_menu.tscn" id="7_cuaqk"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/pause_menu.tscn" id="7_cuaqk"]
 
 [node name="Main" type="Node2D"]
 

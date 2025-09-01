@@ -45,4 +45,5 @@ stream_12/volume = 0.0
 
 [node name="COMBO_OST" type="AudioStreamPlayer"]
 stream = SubResource("AudioStreamSynchronized_gguaa")
+volume_db = -20.0
 autoplay = true

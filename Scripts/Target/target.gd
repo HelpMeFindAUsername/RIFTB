@@ -21,6 +21,7 @@ func _input(event):
 			if event.pressed:
 				var bullet_hole_instance = bullet_hole.instantiate()
 				bullet_hole_instance.position = get_local_mouse_position()
+				bullet_hole_instance.rotation = randi_range(1, 359)
 				random_sprite.add_child(bullet_hole_instance)
 				if health > 0:
 					print("TARGET HIT")

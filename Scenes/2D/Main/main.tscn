@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbqe8lxyfj3ug"]
+[gd_scene load_steps=8 format=3 uid="uid://dbqe8lxyfj3ug"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_560fx"]
 [ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="3_4551s"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c0qhcvigjknwd" path="res://Shaders/Vignette/vignette.tscn" id="6_cuaqk"]
 [ext_resource type="PackedScene" uid="uid://b74wahwffm8lg" path="res://Scenes/2D/Sub/Shootlings/Spawner/target_spawner.tscn" id="6_i4dpe"]
 [ext_resource type="PackedScene" uid="uid://gj2cgnt3twct" path="res://Scenes/UI/pause_menu.tscn" id="7_cuaqk"]
-[ext_resource type="Script" uid="uid://dh40wo8ngqedt" path="res://Scenes/2D/Main/combo_timer.gd" id="8_cnd8s"]
 
 [node name="Main" type="Node2D"]
 
@@ -58,7 +57,3 @@ volume_db = -20.0
 max_polyphony = 64
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_cuaqk")]
-
-[node name="ComboTimer" type="Timer" parent="."]
-wait_time = 4.0
-script = ExtResource("8_cnd8s")

@@ -21,6 +21,8 @@ func _ready():
 	dialogue_path = debug_dialogue_path
 
 func _process(_delta):
+	if player_combo > 10:
+		player_combo = 10
 	player_bullet_strength = Vector2(randi_range(-200, 200), -200)
 
 func dialogue_check():

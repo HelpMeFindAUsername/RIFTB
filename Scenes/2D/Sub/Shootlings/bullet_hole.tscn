@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bapabkwodng2g"]
+
+[ext_resource type="Texture2D" uid="uid://buedh1oj7752l" path="res://Assets/Target/Bullet_Hole/Bullet_hole_WIP.png" id="1_cb3fq"]
+
+[node name="Bullet_Hole" type="Node2D"]
+
+[node name="BulletHoleWip" type="Sprite2D" parent="."]
+texture = ExtResource("1_cb3fq")
+offset = Vector2(0, -0.5)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmgq6p15t4gws"]
+
+[ext_resource type="AudioStream" uid="uid://drwpmnspgltrp" path="res://Music&Sounds/WAV/INST/CLAP.wav" id="1_cplch"]
+[ext_resource type="AudioStream" uid="uid://co0f2huj26l8m" path="res://Music&Sounds/WAV/INST/BITE.wav" id="2_4pi58"]
+[ext_resource type="AudioStream" uid="uid://6f860ho8xnbo" path="res://Music&Sounds/WAV/INST/BASSDRUM.wav" id="2_puc2d"]
+[ext_resource type="AudioStream" uid="uid://cj78p0me6mcpb" path="res://Music&Sounds/WAV/INST/NAVIGATOR.wav" id="3_8h5p1"]
+[ext_resource type="AudioStream" uid="uid://b3huj2dmcjc5h" path="res://Music&Sounds/WAV/INST/HITHAT.wav" id="3_gguaa"]
+[ext_resource type="AudioStream" uid="uid://crflnpoohppu5" path="res://Music&Sounds/WAV/INST/GENTLE.wav" id="4_4pi58"]
+[ext_resource type="AudioStream" uid="uid://bat48wssvfcyv" path="res://Music&Sounds/WAV/INST/KICK.wav" id="4_yir12"]
+[ext_resource type="AudioStream" uid="uid://cg4gcdfkpj6k3" path="res://Music&Sounds/WAV/INST/DRUMPAD.wav" id="4_yovq0"]
+[ext_resource type="AudioStream" uid="uid://cpoyd6r3rpyjd" path="res://Music&Sounds/WAV/INST/SNARE.wav" id="7_2xxdo"]
+[ext_resource type="AudioStream" uid="uid://cw014p0343qn1" path="res://Music&Sounds/WAV/INST/CLAV.wav" id="9_wxwby"]
+[ext_resource type="AudioStream" uid="uid://c2q0udjfk0spk" path="res://Music&Sounds/WAV/INST/SOUL.wav" id="10_eydi0"]
+[ext_resource type="AudioStream" uid="uid://byhhj1ej8q7p7" path="res://Music&Sounds/WAV/INST/STRUT.wav" id="11_dtr0n"]
+[ext_resource type="AudioStream" uid="uid://mqo27gowx14a" path="res://Music&Sounds/WAV/INST/WAVE.wav" id="12_a2q8j"]
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_gguaa"]
+stream_count = 13
+stream_0/stream = ExtResource("2_puc2d")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("2_4pi58")
+stream_1/volume = 0.0
+stream_2/stream = ExtResource("1_cplch")
+stream_2/volume = 0.0
+stream_3/stream = ExtResource("9_wxwby")
+stream_3/volume = 0.0
+stream_4/stream = ExtResource("4_yovq0")
+stream_4/volume = 0.0
+stream_5/stream = ExtResource("4_4pi58")
+stream_5/volume = 0.0
+stream_6/stream = ExtResource("3_gguaa")
+stream_6/volume = 0.0
+stream_7/stream = ExtResource("4_yir12")
+stream_7/volume = 0.0
+stream_8/stream = ExtResource("3_8h5p1")
+stream_8/volume = 0.0
+stream_9/stream = ExtResource("7_2xxdo")
+stream_9/volume = 0.0
+stream_10/stream = ExtResource("10_eydi0")
+stream_10/volume = 0.0
+stream_11/stream = ExtResource("11_dtr0n")
+stream_11/volume = 0.0
+stream_12/stream = ExtResource("12_a2q8j")
+stream_12/volume = 0.0
+
+[node name="COMBO_OST" type="AudioStreamPlayer"]
+stream = SubResource("AudioStreamSynchronized_gguaa")
+autoplay = true

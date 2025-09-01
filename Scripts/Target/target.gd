@@ -30,14 +30,14 @@ func _input(event):
 				if health <= -3:
 					print("TARGET FUCKED UP")
 					target_entered = false
-					target_hitbox.queue_free()
-					random_sprite.queue_free()
+					if target_hitbox:
+						target_hitbox.queue_free()
+						random_sprite.queue_free()
 					_spawn_fragments() # call fragments spawn
 					
 					if Global.is_looking and is_prize:
 						Global.spotted = true
 			
-
 
 
 func _process(_delta):
@@ -50,6 +50,7 @@ func _physics_process(_delta):
 		freeze = false
 	if health <= 0 and Input.is_action_just_pressed("LMB") and target_entered:
 		self.apply_impulse(Global.player_bullet_strength)
+	
 
 func _on_target_hitbox_mouse_entered() -> void:
 	target_entered = true

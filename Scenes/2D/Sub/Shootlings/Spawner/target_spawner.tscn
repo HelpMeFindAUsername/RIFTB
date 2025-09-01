@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74wahwffm8lg"]
+
+[ext_resource type="Script" uid="uid://bpirgkxf1oqbt" path="res://Scripts/Target/target_spawner.gd" id="1_v8mq7"]
+[ext_resource type="Texture2D" uid="uid://cvki64glt3iop" path="res://Assets/Target/Target_Spawn_PlaceHolder.png" id="2_v8mq7"]
+
+[sub_resource type="GDScript" id="GDScript_v8mq7"]
+script/source = "extends Sprite2D
+
+func _ready():
+	visible = false
+"
+
+[node name="Target_Spawner" type="Node2D"]
+script = ExtResource("1_v8mq7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 0)
+texture = ExtResource("2_v8mq7")
+script = SubResource("GDScript_v8mq7")

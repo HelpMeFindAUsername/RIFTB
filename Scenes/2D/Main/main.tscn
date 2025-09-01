@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbqe8lxyfj3ug"]
+[gd_scene load_steps=7 format=3 uid="uid://dbqe8lxyfj3ug"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_560fx"]
-[ext_resource type="PackedScene" uid="uid://rthxfyma5sfk" path="res://Scenes/2D/Sub/Shootlings/target.tscn" id="2_4551s"]
 [ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="3_4551s"]
-[ext_resource type="PackedScene" uid="uid://bn7qxt0dvpv3" path="res://Scenes/2D/Sub/Shootlings/prize_big.tscn" id="3_gov5m"]
 [ext_resource type="PackedScene" uid="uid://cgsu3v8uek4ym" path="res://Scenes/UI/Dialogue_box/dialogue_system.tscn" id="5_1nsjr"]
+[ext_resource type="PackedScene" uid="uid://dmgq6p15t4gws" path="res://Scenes/UI/COMBO_OST.tscn" id="6_cnd8s"]
+[ext_resource type="PackedScene" uid="uid://c0qhcvigjknwd" path="res://Shaders/Vignette/vignette.tscn" id="6_cuaqk"]
+[ext_resource type="PackedScene" uid="uid://b74wahwffm8lg" path="res://Scenes/2D/Sub/Shootlings/Spawner/target_spawner.tscn" id="6_i4dpe"]
 
 [node name="Main" type="Node2D"]
 
@@ -12,33 +13,41 @@
 
 [node name="Back" type="Node2D" parent="."]
 
-[node name="Target" parent="Back" instance=ExtResource("2_4551s")]
-position = Vector2(488, 145)
-scale_mult = Vector2(0.2, 0.2)
+[node name="Target_Spawner" parent="Back" instance=ExtResource("6_i4dpe")]
+position = Vector2(425, 174)
+scale = Vector2(0.5, 0.5)
+health = 3
 
-[node name="Target2" parent="Back" instance=ExtResource("2_4551s")]
-position = Vector2(583, 145)
-scale_mult = Vector2(0.2, 0.2)
+[node name="Target_Spawner2" parent="Back" instance=ExtResource("6_i4dpe")]
+position = Vector2(552, 174)
+scale = Vector2(0.5, 0.5)
+health = 3
 
-[node name="Target3" parent="Back" instance=ExtResource("2_4551s")]
-position = Vector2(680, 147)
-scale_mult = Vector2(0.2, 0.2)
+[node name="Target_Spawner3" parent="Back" instance=ExtResource("6_i4dpe")]
+position = Vector2(690, 174)
+scale = Vector2(0.5, 0.5)
+health = 3
 
 [node name="Front" type="Node2D" parent="."]
 
-[node name="Target" parent="Front" instance=ExtResource("2_4551s")]
-position = Vector2(430, 367)
+[node name="Target_Spawner" parent="Front" instance=ExtResource("6_i4dpe")]
+position = Vector2(425, 325)
+health = 3
 
-[node name="Target2" parent="Front" instance=ExtResource("2_4551s")]
-position = Vector2(559, 369)
+[node name="Target_Spawner2" parent="Front" instance=ExtResource("6_i4dpe")]
+position = Vector2(552, 324)
+health = 3
+is_prize = true
 
-[node name="Target3" parent="Front" instance=ExtResource("2_4551s")]
-position = Vector2(691, 369)
-
-[node name="Prize_Big" parent="Front" instance=ExtResource("3_gov5m")]
-position = Vector2(901, 345)
+[node name="Target_Spawner3" parent="Front" instance=ExtResource("6_i4dpe")]
+position = Vector2(690, 325)
+health = 3
 
 [node name="Fucker_AI_WIP" parent="." instance=ExtResource("3_4551s")]
 position = Vector2(194, 401)
 
 [node name="DialogueSystem" parent="." instance=ExtResource("5_1nsjr")]
+
+[node name="Vignette" parent="." instance=ExtResource("6_cuaqk")]
+
+[node name="COMBO_OST" parent="." instance=ExtResource("6_cnd8s")]

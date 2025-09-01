@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjjcpeen2unba"
-path="res://.godot/imported/Target-Sheet.png-f3dd31a527c84ac302af0bf8e9683662.ctex"
+uid="uid://cksmvq1ebpfdq"
+path="res://.godot/imported/Big_Prize.png-3d02f38915df30afe2fe5be15dd9cc11.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Target/Target-Sheet.png"
-dest_files=["res://.godot/imported/Target-Sheet.png-f3dd31a527c84ac302af0bf8e9683662.ctex"]
+source_file="res://Assets/Target/Big_Prize/Big_Prize.png"
+dest_files=["res://.godot/imported/Big_Prize.png-3d02f38915df30afe2fe5be15dd9cc11.ctex"]
 
 [params]
 

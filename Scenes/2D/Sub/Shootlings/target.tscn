@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://rthxfyma5sfk"]
 
-[ext_resource type="Script" uid="uid://checqkkyahuvl" path="res://Scripts/target.gd" id="1_ls7vh"]
+[ext_resource type="Script" uid="uid://checqkkyahuvl" path="res://Scripts/Target/target.gd" id="1_ls7vh"]
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_vq1qf"]
-[ext_resource type="Texture2D" uid="uid://cjjcpeen2unba" path="res://Assets/Target/Target-Sheet.png" id="3_jgpce"]
+[ext_resource type="Texture2D" uid="uid://cjjcpeen2unba" path="res://Assets/Target/Common_Target/Target-Sheet.png" id="3_jgpce"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jgpce"]
 size = Vector2(76, 148)
@@ -10,12 +10,26 @@ size = Vector2(76, 148)
 [sub_resource type="GDScript" id="GDScript_r2kur"]
 script/source = "extends Sprite2D
 
-var frames = texture.get_width() / region_rect.size.x
+var target_texture = preload(\"res://Assets/Target/Common_Target/Target-Sheet.png\")
+var prize_texture = preload(\"res://Assets/Target/Big_Prize/Big_Prize.png\")
+
+var target_frames = target_texture.get_width() / region_rect.size.x
+var prize_frames = prize_texture.get_width() / region_rect.size.x
 @onready var target = $\"..\"
 
+
 func _ready():
-	var random_index = randi_range(0, frames - 1)
-	region_rect.position.x = random_index * region_rect.size.x
+	if get_parent().is_prize:
+		texture = prize_texture
+	else:
+		texture = target_texture
+	
+	if get_parent().is_prize:
+		var random_index = randi_range(0, prize_frames - 1)
+		region_rect.position.x = random_index * region_rect.size.x
+	else:
+		var random_index = randi_range(0, target_frames - 1)
+		region_rect.position.x = random_index * region_rect.size.x
 
 func _process(_delta):
 	scale = target.scale_mult
@@ -104,7 +118,7 @@ script = SubResource("GDScript_ef517")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ef517")
+&"": SubResource("AnimationLibrary_ef517")
 }
 
 [connection signal="mouse_entered" from="Random_Sprite/Target_Hitbox" to="." method="_on_target_hitbox_mouse_entered"]

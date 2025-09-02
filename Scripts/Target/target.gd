@@ -24,6 +24,9 @@ var hit_force := Vector2(1, 1)             # Placeholder for impulses
 var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
 
 func _input(event):
+	# Special case: spotted prize logic
+	if Global.is_looking and is_prize:
+		Global.spotted = true
 	# Handle left mouse button inputs
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and Global.bullets:
 		if target_entered:  # Only interact when cursor is inside hitbox
@@ -40,13 +43,25 @@ func _input(event):
 					is_falling = false
 					print("TARGET HIT")
 					health -= 1
-					Global.player_score += assPoints()
-					Global.player_combo += 1
+					
+					if Global.spotted:
+						Global.player_score -= 1
+						Global.player_combo = 1
+					else:
+						Global.player_score += assPoints()
+						Global.player_combo += 1
+					
+					
 				else:
 					is_falling = true
 					print("TARGET DESTROYED")
 					health -= 1
-					Global.player_score += assPoints()
+					if Global.spotted:
+						Global.player_score -= 1
+						Global.player_combo = 1
+					else:
+						Global.player_score += assPoints()
+						Global.player_combo += 1
 				
 				# If health falls below threshold, remove and fragment
 				if health <= -3:
@@ -58,9 +73,7 @@ func _input(event):
 						bullet_hole_instance.queue_free()
 					_spawn_fragments() # Call fragments spawn for breakup effect
 					
-					# Special case: spotted prize logic
-					if Global.is_looking and is_prize:
-						Global.spotted = true
+					
 						
 	# Reset Global.hit each frame after input handling
 	Global.hit = false
@@ -88,9 +101,14 @@ func _on_target_hitbox_mouse_exited() -> void:
 # Calculate points awarded depending on state
 func assPoints() -> float:
 	if is_falling:
+		if is_prize:
+			return points_assigned * comboMult * Global.player_combo
 		# Reduced score if target is already falling
 		return (points_assigned/2) * comboMult * Global.player_combo
+		
 	else:
+		if is_prize:
+			return points_assigned * 2 * comboMult * Global.player_combo
 		return points_assigned * comboMult * Global.player_combo
 
 # Fragment Spawner

@@ -36,16 +36,36 @@ health = 3
 [node name="Target_Spawner" parent="Front" instance=ExtResource("6_i4dpe")]
 position = Vector2(425, 325)
 health = 3
-is_prize = true
 
 [node name="Target_Spawner2" parent="Front" instance=ExtResource("6_i4dpe")]
 position = Vector2(552, 324)
 health = 3
-is_prize = true
 
 [node name="Target_Spawner3" parent="Front" instance=ExtResource("6_i4dpe")]
 position = Vector2(690, 325)
 health = 3
+
+[node name="PrizeShelf" type="Node2D" parent="."]
+
+[node name="Target_Spawner" parent="PrizeShelf" instance=ExtResource("6_i4dpe")]
+position = Vector2(863, 178)
+health = 3
+is_prize = true
+
+[node name="Target_Spawner2" parent="PrizeShelf" instance=ExtResource("6_i4dpe")]
+position = Vector2(966, 178)
+health = 3
+is_prize = true
+
+[node name="Target_Spawner3" parent="PrizeShelf" instance=ExtResource("6_i4dpe")]
+position = Vector2(296, 163)
+health = 3
+is_prize = true
+
+[node name="Target_Spawner4" parent="PrizeShelf" instance=ExtResource("6_i4dpe")]
+position = Vector2(212, 161)
+health = 3
+is_prize = true
 
 [node name="Fucker_AI_WIP" parent="." instance=ExtResource("3_4551s")]
 position = Vector2(194, 401)

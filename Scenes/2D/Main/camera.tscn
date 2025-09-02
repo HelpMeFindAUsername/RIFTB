@@ -136,10 +136,12 @@ vertical_alignment = 1
 script = ExtResource("4_fclq7")
 
 [node name="Mag" type="Label" parent="CanvasLayer"]
-offset_left = 860.0
-offset_top = 27.0
-offset_right = 1109.0
-offset_bottom = 148.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -249.0
+offset_bottom = 121.0
+grow_horizontal = 0
 text = "Bullets: "
 horizontal_alignment = 1
 vertical_alignment = 1

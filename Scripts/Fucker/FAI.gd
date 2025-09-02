@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var delay = $Delay
 
-# Whether the NPC is allowed to change its movement/looking state
+# Whether the Fucker is allowed to change its movement/looking state
 var can_change_status : bool = false
 
 # Movement direction: -1 = left, 1 = right, 0 = idle/looking

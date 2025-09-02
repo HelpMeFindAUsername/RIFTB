@@ -23,6 +23,12 @@ var dialogue_path = "res://Resources/Dialogues/placeholder.json"
 func _ready():
 	dialogue_path = debug_dialogue_path
 
+func _input(event):
+	if !is_talking:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed and bullets:
+				bullets -= 1
+
 func _process(_delta):
 	if player_combo > 10:
 		player_combo = 10

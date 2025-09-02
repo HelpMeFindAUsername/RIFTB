@@ -82,7 +82,7 @@ func _physics_process(_delta):
 	if health <= 0:
 		freeze = false
 	# Apply impulse if player shoots while target is active
-	if health <= 0 and Input.is_action_just_pressed("LMB") and target_entered:
+	if health <= 0 and Input.is_action_just_pressed("LMB") and target_entered and Global.bullets:
 		self.apply_impulse(Global.player_bullet_strength)
 
 # Mouse signals toggle target_entered state

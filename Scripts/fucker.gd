@@ -13,6 +13,7 @@ func _input(event):
 				print("HIT FUCKER")
 				Global.player_score -= 1
 				Global.player_combo = 1
+				Global.spotted = true
 			# Graze: reward a smaller score, only if Global.hit flag was set by another script
 			elif entered_graze and Global.hit:
 				print("GRAZED FUCKER")

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cj78p0me6mcpb"
-path="res://.godot/imported/NAVIGATOR.wav-1283162da28f1b389e217789a4577bd4.sample"
+path="res://.godot/imported/NAVIGATOR.wav-0c08a7cfe225d6dcb2b7c74f45c664be.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/NAVIGATOR.wav"
-dest_files=["res://.godot/imported/NAVIGATOR.wav-1283162da28f1b389e217789a4577bd4.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/NAVIGATOR.wav"
+dest_files=["res://.godot/imported/NAVIGATOR.wav-0c08a7cfe225d6dcb2b7c74f45c664be.sample"]
 
 [params]
 

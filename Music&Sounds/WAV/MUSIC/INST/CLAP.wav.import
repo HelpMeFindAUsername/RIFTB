@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c2q0udjfk0spk"
-path="res://.godot/imported/SOUL.wav-d4dc8547fc507c240122b64ecdb1df3a.sample"
+uid="uid://drwpmnspgltrp"
+path="res://.godot/imported/CLAP.wav-ecd2b38e53bab6d3afb1c93c678dc6d2.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/SOUL.wav"
-dest_files=["res://.godot/imported/SOUL.wav-d4dc8547fc507c240122b64ecdb1df3a.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/CLAP.wav"
+dest_files=["res://.godot/imported/CLAP.wav-ecd2b38e53bab6d3afb1c93c678dc6d2.sample"]
 
 [params]
 

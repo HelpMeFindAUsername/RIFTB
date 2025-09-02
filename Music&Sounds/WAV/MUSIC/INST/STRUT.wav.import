@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cw014p0343qn1"
-path="res://.godot/imported/CLAV.wav-19d00ec3365e947d36dfe243a29ae4c4.sample"
+uid="uid://byhhj1ej8q7p7"
+path="res://.godot/imported/STRUT.wav-fee45c352ea3010534308d3f6cf1fe50.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/CLAV.wav"
-dest_files=["res://.godot/imported/CLAV.wav-19d00ec3365e947d36dfe243a29ae4c4.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/STRUT.wav"
+dest_files=["res://.godot/imported/STRUT.wav-fee45c352ea3010534308d3f6cf1fe50.sample"]
 
 [params]
 

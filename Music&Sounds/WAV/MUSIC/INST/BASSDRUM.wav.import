@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://6f860ho8xnbo"
-path="res://.godot/imported/BASSDRUM.wav-920415babb167c22a4be779d3cd57587.sample"
+path="res://.godot/imported/BASSDRUM.wav-01c172c9cc311d218222050192cd0591.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/BASSDRUM.wav"
-dest_files=["res://.godot/imported/BASSDRUM.wav-920415babb167c22a4be779d3cd57587.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/BASSDRUM.wav"
+dest_files=["res://.godot/imported/BASSDRUM.wav-01c172c9cc311d218222050192cd0591.sample"]
 
 [params]
 

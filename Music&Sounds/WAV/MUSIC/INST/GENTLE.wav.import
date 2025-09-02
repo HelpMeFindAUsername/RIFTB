@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://crflnpoohppu5"
-path="res://.godot/imported/GENTLE.wav-45e6d7fee20d9757a5aba4425d703534.sample"
+path="res://.godot/imported/GENTLE.wav-4eef75fca992af073f511ad5bc4deab3.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/GENTLE.wav"
-dest_files=["res://.godot/imported/GENTLE.wav-45e6d7fee20d9757a5aba4425d703534.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/GENTLE.wav"
+dest_files=["res://.godot/imported/GENTLE.wav-4eef75fca992af073f511ad5bc4deab3.sample"]
 
 [params]
 

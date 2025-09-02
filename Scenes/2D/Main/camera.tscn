@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=15 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
-[ext_resource type="Script" uid="uid://c1wdncwlg2a2s" path="res://Scenes/2D/Main/pointsDisplay.gd" id="3_j0yne"]
-[ext_resource type="Script" uid="uid://tida1mxev7ud" path="res://Scenes/2D/Main/Combo.gd" id="4_fclq7"]
-[ext_resource type="Script" uid="uid://dh40wo8ngqedt" path="res://Scenes/2D/Main/combo_timer.gd" id="5_f8pr0"]
+[ext_resource type="Script" uid="uid://c1wdncwlg2a2s" path="res://Scripts/pointsDisplay.gd" id="3_j0yne"]
+[ext_resource type="Script" uid="uid://tida1mxev7ud" path="res://Scripts/Combo.gd" id="4_fclq7"]
+[ext_resource type="Script" uid="uid://dh40wo8ngqedt" path="res://Scripts/combo_timer.gd" id="5_f8pr0"]
+[ext_resource type="Script" uid="uid://2jkdxnvxqs8o" path="res://Scripts/mag.gd" id="5_k5bn8"]
+[ext_resource type="Script" uid="uid://deb04vxn6gfuy" path="res://Scripts/reload.gd" id="7_r3n4t"]
+[ext_resource type="Texture2D" uid="uid://h3itx8gnn2a3" path="res://Assets/gun.png" id="8_2akn4"]
+[ext_resource type="Script" uid="uid://buuilg4vmi0mk" path="res://Scripts/gunpointer.gd" id="9_aom8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
 size = Vector2(1458, 237.5)
@@ -131,9 +135,32 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_fclq7")
 
+[node name="Mag" type="Label" parent="CanvasLayer"]
+offset_left = 860.0
+offset_top = 27.0
+offset_right = 1109.0
+offset_bottom = 148.0
+text = "Bullets: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_k5bn8")
+
 [node name="ComboTimer" type="Timer" parent="."]
 wait_time = 4.0
 script = ExtResource("5_f8pr0")
+
+[node name="ReloadTime" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+script = ExtResource("7_r3n4t")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
+offset_right = 259.0
+offset_bottom = 194.0
+texture = ExtResource("8_2akn4")
+script = ExtResource("9_aom8o")
 
 [connection signal="mouse_entered" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]

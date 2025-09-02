@@ -12,6 +12,9 @@ var spotted : bool = false
 
 var is_talking : bool = true
 
+var bullets : int = 36
+var maxBullets : int = 36
+
 var hit : bool = false
 
 var debug_dialogue_path = "res://Resources/Dialogues/placeholder.json"

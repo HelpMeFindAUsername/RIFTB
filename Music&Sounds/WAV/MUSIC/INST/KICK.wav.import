@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://drwpmnspgltrp"
-path="res://.godot/imported/CLAP.wav-767fdeaa6f0f2ca16d4b94c48c0c2502.sample"
+uid="uid://bat48wssvfcyv"
+path="res://.godot/imported/KICK.wav-10241f3819b254ea277a54f047387b98.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/CLAP.wav"
-dest_files=["res://.godot/imported/CLAP.wav-767fdeaa6f0f2ca16d4b94c48c0c2502.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/KICK.wav"
+dest_files=["res://.godot/imported/KICK.wav-10241f3819b254ea277a54f047387b98.sample"]
 
 [params]
 

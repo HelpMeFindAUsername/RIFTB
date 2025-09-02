@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bply5oev6t736"
-path="res://.godot/imported/UNGODLY_COMBO.wav-e7a037b8845b4cb85d9d7eef8c46930a.sample"
+path="res://.godot/imported/UNGODLY_COMBO.wav-4d78fea92ad64826158b777340b10fbd.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/UNGODLY_COMBO.wav"
-dest_files=["res://.godot/imported/UNGODLY_COMBO.wav-e7a037b8845b4cb85d9d7eef8c46930a.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/UNGODLY_COMBO.wav"
+dest_files=["res://.godot/imported/UNGODLY_COMBO.wav-4d78fea92ad64826158b777340b10fbd.sample"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cg4gcdfkpj6k3"
-path="res://.godot/imported/DRUMPAD.wav-87671f5179a6f6233b52982dca9e8eb2.sample"
+uid="uid://cw014p0343qn1"
+path="res://.godot/imported/CLAV.wav-fa8d8f41ea926f0703e6c1ed8b4e71e2.sample"
 
 [deps]
 
-source_file="res://Music&Sounds/WAV/INST/DRUMPAD.wav"
-dest_files=["res://.godot/imported/DRUMPAD.wav-87671f5179a6f6233b52982dca9e8eb2.sample"]
+source_file="res://Music&Sounds/WAV/MUSIC/INST/CLAV.wav"
+dest_files=["res://.godot/imported/CLAV.wav-fa8d8f41ea926f0703e6c1ed8b4e71e2.sample"]
 
 [params]
 

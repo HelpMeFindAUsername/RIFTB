@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dsgqh8mqbjihe"]
+[gd_scene load_steps=13 format=3 uid="uid://dsgqh8mqbjihe"]
 
 [ext_resource type="Texture2D" uid="uid://60gmhj82ueix" path="res://icon.svg" id="1_e20cu"]
 [ext_resource type="Script" uid="uid://bo51r53d80fyk" path="res://Scripts/camera_2d.gd" id="1_w55bj"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://dh40wo8ngqedt" path="res://Scripts/combo_timer.gd" id="5_f8pr0"]
 [ext_resource type="Script" uid="uid://2jkdxnvxqs8o" path="res://Scripts/mag.gd" id="5_k5bn8"]
 [ext_resource type="Script" uid="uid://deb04vxn6gfuy" path="res://Scripts/reload.gd" id="7_r3n4t"]
-[ext_resource type="Texture2D" uid="uid://h3itx8gnn2a3" path="res://Assets/gun.png" id="8_2akn4"]
-[ext_resource type="Script" uid="uid://buuilg4vmi0mk" path="res://Scripts/gunpointer.gd" id="9_aom8o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yne"]
 size = Vector2(1458, 237.5)
@@ -155,14 +153,6 @@ script = ExtResource("5_f8pr0")
 wait_time = 2.0
 one_shot = true
 script = ExtResource("7_r3n4t")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
-offset_right = 259.0
-offset_bottom = 194.0
-texture = ExtResource("8_2akn4")
-script = ExtResource("9_aom8o")
 
 [connection signal="mouse_entered" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Strong_Movements/Up_Move" to="Camera2D" method="_on_up_move_mouse_exited"]

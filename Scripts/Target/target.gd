@@ -14,30 +14,29 @@ var target_entered : bool = false          # True while mouse is over target hit
 @onready var random_sprite: Sprite2D = $Random_Sprite
 @onready var target_hitbox: Area2D = $Random_Sprite/Target_Hitbox
 @onready var target_collision = $Target_Collision
-@onready var combo_timer: Timer = $ComboTimer
 
 # Status and physics variables
-var is_falling : bool = false              # True when target has been "destroyed"
-var hit_force := Vector2(1, 1)             # Placeholder for impulses
+var is_falling : bool = false # True when target has been "destroyed"
+var hit_force := Vector2(1, 1) # Placeholder for impulses
 
 # Preloaded scene for visual bullet hole effect
 var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
 
 func _input(event):
-	# Special case: spotted prize logic
-	if Global.is_looking and is_prize:
-		Global.spotted = true
 	# Handle left mouse button inputs
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and Global.bullets:
 		if target_entered:  # Only interact when cursor is inside hitbox
-			Global.hit = true
 			if event.pressed:
+				#Spotted Check
+				if Global.is_looking and is_prize:
+					Global.spotted = true
+					print("SPOTTED")
 				# Spawn bullet hole decal on sprite
 				var bullet_hole_instance = bullet_hole.instantiate()
 				bullet_hole_instance.position = get_local_mouse_position()
 				bullet_hole_instance.rotation = randi_range(1, 359)
 				random_sprite.add_child(bullet_hole_instance)
-
+				
 				# Handle hit logic
 				if health > 0:
 					is_falling = false
@@ -50,8 +49,7 @@ func _input(event):
 					else:
 						Global.player_score += assPoints()
 						Global.player_combo += 1
-					
-					
+				
 				else:
 					is_falling = true
 					print("TARGET DESTROYED")
@@ -72,11 +70,7 @@ func _input(event):
 						random_sprite.queue_free()
 						bullet_hole_instance.queue_free()
 					_spawn_fragments() # Call fragments spawn for breakup effect
-					
-					
-						
-	# Reset Global.hit each frame after input handling
-	Global.hit = false
+				
 
 func _process(_delta):
 	# Trigger falling animation once target reaches 0 health

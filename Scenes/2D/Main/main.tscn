@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbqe8lxyfj3ug"]
+[gd_scene load_steps=11 format=3 uid="uid://dbqe8lxyfj3ug"]
 
 [ext_resource type="PackedScene" uid="uid://dsgqh8mqbjihe" path="res://Scenes/2D/Main/camera.tscn" id="1_560fx"]
 [ext_resource type="PackedScene" uid="uid://b28eixq62pntf" path="res://Scenes/2D/Sub/Fucker/fucker_ai_wip.tscn" id="3_4551s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gj2cgnt3twct" path="res://Scenes/UI/pause_menu.tscn" id="7_cuaqk"]
 [ext_resource type="AudioStream" uid="uid://beeoibsmhg43o" path="res://Music&Sounds/WAV/SFX/GUNSHOT.wav" id="8_kqche"]
 [ext_resource type="Script" uid="uid://ca1asq2elutmv" path="res://Scripts/gunshot_sfx.gd" id="9_ykg64"]
+[ext_resource type="PackedScene" uid="uid://bi0xqmuxg31ua" path="res://Scenes/UI/mouse_cursor.tscn" id="10_ykg64"]
 
 [node name="Main" type="Node2D"]
 
@@ -83,3 +84,5 @@ max_polyphony = 64
 [node name="GUNSHOT_SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_kqche")
 script = ExtResource("9_ykg64")
+
+[node name="Mouse_Cursor" parent="." instance=ExtResource("10_ykg64")]

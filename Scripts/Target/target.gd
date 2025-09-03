@@ -44,8 +44,7 @@ func _input(event):
 					health -= 1
 					
 					if Global.spotted:
-						Global.player_score -= 1
-						Global.player_combo = 1
+						get_tree().quit()
 					else:
 						Global.player_score += assPoints()
 						Global.player_combo += 1
@@ -55,8 +54,7 @@ func _input(event):
 					print("TARGET DESTROYED")
 					health -= 1
 					if Global.spotted:
-						Global.player_score -= 1
-						Global.player_combo = 1
+						get_tree().quit()
 					else:
 						Global.player_score += assPoints()
 						Global.player_combo += 1
@@ -99,11 +97,12 @@ func assPoints() -> float:
 			return points_assigned * comboMult * Global.player_combo
 		# Reduced score if target is already falling
 		return (points_assigned/2) * comboMult * Global.player_combo
-		
+
 	else:
 		if is_prize:
 			return points_assigned * 2 * comboMult * Global.player_combo
-		return points_assigned * comboMult * Global.player_combo
+		else:
+			return points_assigned * comboMult * Global.player_combo
 
 # Fragment Spawner
 # -----------------------------------------------------

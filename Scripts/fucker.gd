@@ -6,7 +6,7 @@ var entered_graze : bool = false # True when the mouse is over the graze hitbox
 
 func _input(event):
 	# Only listen for left mouse button events
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and !Global.is_talking and Global.bullets:
 		if event.pressed:
 			# Direct hit: penalize player score and reset combo
 			if entered_hit:

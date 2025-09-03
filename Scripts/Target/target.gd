@@ -24,7 +24,7 @@ var bullet_hole = preload("res://Scenes/2D/Sub/Shootlings/bullet_hole.tscn")
 
 func _input(event):
 	# Handle left mouse button inputs
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and Global.bullets:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and Global.bullets and !Global.is_talking:
 		if target_entered:  # Only interact when cursor is inside hitbox
 			if event.pressed:
 				#Spotted Check

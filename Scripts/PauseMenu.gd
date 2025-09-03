@@ -35,7 +35,7 @@ func _ready():
 	_show_main_menu()
 
 func _unhandled_input(event):
-	if event.is_action_pressed("ui_cancel"): # Escape key
+	if event.is_action_pressed("pause"): # P
 		toggle_pause()
 
 func toggle_pause():
